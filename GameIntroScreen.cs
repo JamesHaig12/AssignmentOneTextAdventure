@@ -60,11 +60,11 @@ namespace AssignmentOneTextAdventure
             while(continueGame == false)
             {
                 Console.WriteLine("\nYou Are?");
-                string classChoice = Console.ReadLine();
+                string classChoice = Console.ReadLine().ToLower();
                 int playerClass;
                 switch (classChoice)
                 {
-                    case string a when a.Contains("Mage") || a.Contains("mage"):
+                    case string a when a.Contains("mage"):
                         playerClass = 1;
                         Console.WriteLine("\nYou, the Mage, approach the entrance first...");
                         Console.ForegroundColor = ConsoleColor.Gray;
@@ -75,7 +75,7 @@ namespace AssignmentOneTextAdventure
                         GameIntro(playerClass);
                         break;
 
-                    case string c when c.Contains("Warrior") || c.Contains("warrior"):
+                    case string c when c.Contains("warrior"):
                         playerClass = 2;
                         Console.WriteLine("\nYou, the Warrior, approach the entrance first...");
                         Console.ForegroundColor = ConsoleColor.Gray;
@@ -86,7 +86,7 @@ namespace AssignmentOneTextAdventure
                         GameIntro(playerClass);
                         break;
 
-                    case string e when e.Contains("Rogue") || e.Contains("rogue"):
+                    case string e when e.Contains("rogue"):
                         playerClass = 3;
                         Console.WriteLine("\nYou, the Rogue, approach the entrance first...");
                         Console.ForegroundColor = ConsoleColor.Gray;
@@ -184,7 +184,7 @@ namespace AssignmentOneTextAdventure
 
                 switch (playerEntranceChoiceOne)
                 {
-                    case string a when a.Contains("Look") || a.Contains("look") || a.Contains("Clue") || a.Contains("clue") || a.Contains("Search") || a.Contains("search"):
+                    case string a when a.Contains("look") || a.Contains("clue") || a.Contains("search"):
                         continueGame = true;
                         RoomOne.EntrancePuzzle();
                         break;

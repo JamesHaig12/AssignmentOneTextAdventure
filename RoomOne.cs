@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AssignmentOneTextAdventure
 {
-    public class RoomOne
+    public class RoomOne : Location
     {
         public static void EntrancePuzzle()
         {
@@ -80,11 +80,12 @@ namespace AssignmentOneTextAdventure
             while(continueGame == false)
             {
                 Console.WriteLine("\nWhat is the answer of the riddle?");
-                string riddleAnswer = Console.ReadLine();
+                string riddleAnswer = Console.ReadLine().ToLower();
 
                 switch (riddleAnswer)
                 {
-                    case string a when a.Contains("Man") || a.Contains("man") || a.Contains("Person") || a.Contains("person") || a.Contains("Human") || a.Contains("human"):
+                    case string a when a.Contains("man") || a.Contains("person") ||  a.Contains("human"):
+                        Console.Clear();
                         Console.WriteLine("\nThe eyes of the carving suddenly glow a brilliant red and you hear churning in the background");
                         Console.WriteLine("Before your very eyes you see the solid wall slowly sink into the floor, revealing a pitch black hallway");
                         continueGame = true;
@@ -96,6 +97,31 @@ namespace AssignmentOneTextAdventure
                         break;
                 }
             }
+
+            string corridorArt = @"
+                                ┌         ┐
+                                │         │
+                                │         
+                                │         
+                                │         
+                                │         │
+                                │         │
+                                │         │
+                                │         │
+                                │         │
+                                │         │
+                                │         │
+                                │         │
+                                │         │
+                                │         │
+                                │         │
+                                └    0    ┘  
+                                     ^ this is you 
+
+                                    ";
+
+            Console.ForegroundColor = ConsoleColor.DarkYellow;
+            Console.WriteLine(corridorArt);
         }
     }
 }
