@@ -45,6 +45,10 @@ namespace AssignmentOneTextAdventure
                         continueGame = true;
                         break;
 
+                    case string b when b.Contains("hint"):
+                        Console.WriteLine("Think of the times of day more of the times of this things lifetime.");
+                        break;
+
                     default:
                         Console.WriteLine("{0}! You exclaim, but nothing happened.", riddleAnswer);
                         continueGame = false;
@@ -106,42 +110,54 @@ namespace AssignmentOneTextAdventure
             Console.WriteLine("You see an entrance far down the corridor to the right and another door way at the very end of the corridor.");
             Thread.Sleep(1000);
 
-            Console.WriteLine("\nWhere would you like to go?");
-            string playerMoveAnswer = Console.ReadLine().ToLower();
+            bool continueGame2 = false;
 
-            switch (playerMoveAnswer)
+            while(continueGame2 == false)
             {
-                case string a when a.Contains("right"):
-                    Console.Clear();
-                    RoomTwo.TreasureRoom();
-                    break;
+                Console.WriteLine("\nWhere would you like to go?");
+                string playerMoveAnswer = Console.ReadLine().ToLower();
 
-                case string b when b.Contains("end"):
-                    Console.WriteLine("\nYou make your way to the end of the corridor towards the black space ahead");
-                    Console.WriteLine("As you get close you find that there is a gate blocking your path with a shiny chrome lock");
-                    continueGame = false;
+                switch (playerMoveAnswer)
+                {
+                    case string a when a.Contains("right"):
+                        Console.Clear();
+                        continueGame2 = true;
+                        RoomTwo.TreasureRoom();
+                        break;
 
-                    while (continueGame == false)
-                    {
-                        Console.ForegroundColor = ConsoleColor.Gray;
-                        Console.WriteLine("\nA key is needed to open this door");
-                        Console.ForegroundColor = ConsoleColor.DarkRed;
-                        Console.WriteLine("\nTry the other room?");
-                        string goBackChoice = Console.ReadLine().ToLower();
+                    case string b when b.Contains("end"):
+                        Console.WriteLine("\nYou make your way to the end of the corridor towards the black space ahead");
+                        Console.WriteLine("As you get close you find that there is a gate blocking your path with a shiny chrome lock");
+                        continueGame = false;
 
-                        switch (goBackChoice)
+                        while (continueGame == false)
                         {
-                            case string a when a.Contains("yes"):
-                                continueGame = true;
-                                Console.Clear();
-                                RoomTwo.TreasureRoom();
-                                break;
+                            Console.ForegroundColor = ConsoleColor.Gray;
+                            Console.WriteLine("\nA key is needed to open this door");
+                            Console.ForegroundColor = ConsoleColor.DarkRed;
+                            Console.WriteLine("\nTry the other room?");
+                            string goBackChoice = Console.ReadLine().ToLower();
 
-                            case string c when c.Contains("no"):
-                                break;
+                            switch (goBackChoice)
+                            {
+                                case string a when a.Contains("yes"):
+                                    continueGame = true;
+                                    continueGame2 = true;
+                                    Console.Clear();
+                                    RoomTwo.TreasureRoom();
+                                    break;
+
+                                case string c when c.Contains("no"):
+                                    break;
+                            }
                         }
-                    }
-                    break;
+                        continueGame2 = true;
+                        break;
+
+                    case string c when c.Contains("hint"):
+                        Console.WriteLine("Choose to move to either the doorway at the end or the doorway on the right.");
+                        break;
+                }
             }
         }
     }

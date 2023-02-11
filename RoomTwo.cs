@@ -46,6 +46,10 @@ namespace AssignmentOneTextAdventure
                             continueGame = true;
                             break;
 
+                        case String c when c.Contains("hint"):
+                            Console.WriteLine("Theres a trap above, how do you try to avoid it?");
+                            break;
+
                         default:
                             PlayerOne playerOne = new PlayerOne();
                             GameIntroScreen gameIntroScreen = new GameIntroScreen();

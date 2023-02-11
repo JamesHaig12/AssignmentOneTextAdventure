@@ -115,6 +115,7 @@ namespace AssignmentOneTextAdventure
                 }
                 Console.WriteLine("\nThe mimic stops in its tracks, turns lifeless and crashes to the ground.");
                 Console.WriteLine("You won this fight... for now.");
+                Console.WriteLine("As its corpse settings something clangs onto the floor, the key!.");
                 Console.ReadKey();
             }
             else if (GameIntroScreen.PlayerClass == 2)
@@ -212,6 +213,7 @@ namespace AssignmentOneTextAdventure
                 }
                 Console.WriteLine("\nThe mimic stops in its tracks, turns lifeless and crashes to the ground.");
                 Console.WriteLine("You won this fight... for now.");
+                Console.WriteLine("As its corpse settings something clangs onto the floor, the key!.");
                 Console.ReadKey();
             }
             else if (GameIntroScreen.PlayerClass == 3)
@@ -309,6 +311,7 @@ namespace AssignmentOneTextAdventure
                 }
                 Console.WriteLine("\nThe mimic stops in its tracks, turns lifeless and crashes to the ground.");
                 Console.WriteLine("You won this fight... for now.");
+                Console.WriteLine("As its corpse settings something clangs onto the floor, the key!.");
                 Console.ReadKey();
             }
         }
