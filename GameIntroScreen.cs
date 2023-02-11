@@ -5,41 +5,67 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Security.Cryptography.X509Certificates;
 using System.Runtime.InteropServices;
+using System.Runtime.CompilerServices;
 
 namespace AssignmentOneTextAdventure
 {
     public class GameIntroScreen
     {
-        //This whole section is made to auto resize the console window to full screen... yes its that bad
-        [DllImport("kernel32.dll", ExactSpelling = true)]
-        private static extern IntPtr GetConsoleWindow();
-        private static IntPtr ThisConsole = GetConsoleWindow();
-        [DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = true)]
-        private static extern bool ShowWindow(IntPtr hWnd, int nCmdShow);
-        private const int HIDE = 0;
-        private const int MAXIMIZE = 3;
-        private const int MINIMIZE = 6;
-        private const int RESTORE = 9;
+        private string? playerName;
+        public string PlayerName
+        {
+            get { return playerName; }
+            set { playerName = value; }
+        }
+
+        private int playerClass;
+
+        public int PlayerClass
+        {
+            get { return playerClass; }
+            set { playerClass = value; }
+        }
+
 
         public static void Main(string[] args)
         {
-            //Resize console window
-            Console.SetWindowSize(Console.LargestWindowWidth, Console.LargestWindowHeight);
-            ShowWindow(ThisConsole, MAXIMIZE);
+            //Creating object of the class to access the playerName variable
+            //This is handy later for using the player name in the rest of the game
+            GameIntroScreen gameIntroScreen = new GameIntroScreen();
+            GameArtworks gameArtworks = new GameArtworks();
+
+            //Calls the window resizer script in my other class to maximise the window on startup
+            WindowResizer.ResizeWindow();
+
+            //Tutorial
+            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.WriteLine("Hello and welcome to my game!");
+            Console.WriteLine("Throughout the game you will be faced with questions such as 'What will you do?'");
+            Console.WriteLine("Please feel free to type what ever you'd like, however you may only progress with certain actions");
+            Console.WriteLine("During combat, your character has three moves. Light, heavy, and special");
+            Console.WriteLine("Special moves are class specific and use either stamina or mana, these hit 100% of the time");
+            Console.WriteLine("Light attacks hit more often but do the least damage");
+            Console.WriteLine("Heavy attacks hit less often but do more damage than a light attack");
+            Console.WriteLine("If at any point you dont understand what you need to do, just type 'Hint'");
+            Console.WriteLine("Thank you for playing and i hope you enjoy.");
+            Console.WriteLine("Now... Shall we begin?");
+            Console.ForegroundColor = ConsoleColor.Gray;
+            Console.WriteLine("\nPress any key to continue...");
+            Console.ReadKey();
 
             //Set colour of console to dark red and create ascii art for title
             Console.ForegroundColor = ConsoleColor.DarkRed;
-            Console.Clear();
-                        string menuArt = @"
-             ____  _                           _            ____                    
-            |  _ \| |__   __ _ _ __ __ _  ___ | |__  ___   / ___|   _ _ __ ___  ___ 
-            | |_) | '_ \ / _` | '__/ _` |/ _ \| '_ \/ __| | |  | | | | '__/ __|/ _ \
-            |  __/| | | | (_| | | | (_| | (_) | | | \__ \ | |__| |_| | |  \__ \  __/
-            |_|   |_| |_|\__,_|_|  \__,_|\___/|_| |_|___/  \____\__,_|_|  |___/\___|
-                                                                        
-                                                                             ";
 
-            Console.Write(menuArt);
+            //Gathering players name for future
+            Console.Clear();
+            Thread.Sleep(1000);
+            Console.WriteLine("What is your name traveller?");
+            gameIntroScreen.playerName = Console.ReadLine();
+            Console.WriteLine("Welcome, {0}, to...", gameIntroScreen.playerName);
+            Thread.Sleep(1000);
+            Console.Clear();
+     
+            Console.Write(gameArtworks.MenuArt);
             Console.WriteLine("\nThe great pyramid of Prestonia, known to all as the final resting place of the mighty Pharoah Uclaneses III. " +
                 "\nMany fear this place, only few have dared to enter... but none have returned. Will you?");
             Console.ForegroundColor = ConsoleColor.Gray;
@@ -53,6 +79,7 @@ namespace AssignmentOneTextAdventure
 
         public static void ClassSelection()
         {
+            GameIntroScreen gameIntroScreen = new GameIntroScreen();
             //Switch statement within a while loop, allows for character selection
             //While loop allows for validation, no valid answer =  go around again
             bool continueGame = false;
@@ -61,45 +88,47 @@ namespace AssignmentOneTextAdventure
             {
                 Console.WriteLine("\nYou Are?");
                 string classChoice = Console.ReadLine().ToLower();
-                int playerClass;
                 switch (classChoice)
                 {
                     case string a when a.Contains("mage"):
-                        playerClass = 1;
+                        gameIntroScreen.playerClass = 1;
                         Console.WriteLine("\nYou, the Mage, approach the entrance first...");
                         Console.ForegroundColor = ConsoleColor.Gray;
                         Console.WriteLine("\nPress enter to continue...");
                         Console.ReadKey();
                         Console.Clear();
                         continueGame = true;
-                        GameIntro(playerClass);
+                        GameIntro(gameIntroScreen.playerClass);
                         break;
 
-                    case string c when c.Contains("warrior"):
-                        playerClass = 2;
+                    case string b when b.Contains("warrior"):
+                        gameIntroScreen.playerClass = 2;
                         Console.WriteLine("\nYou, the Warrior, approach the entrance first...");
                         Console.ForegroundColor = ConsoleColor.Gray;
                         Console.WriteLine("\nPress enter to continue...");
                         Console.ReadKey();
                         Console.Clear();
                         continueGame = true;
-                        GameIntro(playerClass);
+                        GameIntro(gameIntroScreen.playerClass);
                         break;
 
-                    case string e when e.Contains("rogue"):
-                        playerClass = 3;
+                    case string c when c.Contains("rogue"):
+                        gameIntroScreen.playerClass = 3;
                         Console.WriteLine("\nYou, the Rogue, approach the entrance first...");
                         Console.ForegroundColor = ConsoleColor.Gray;
                         Console.WriteLine("\nPress enter to continue...");
                         Console.ReadKey();
                         Console.Clear();
                         continueGame = true;
-                        GameIntro(playerClass);
+                        GameIntro(gameIntroScreen.playerClass);
+                        break;
+
+                    case string d when d.Contains("hint"):
+                        Console.WriteLine("Please type the name of the class you would like to choose");
                         break;
 
                     default:
                         Console.WriteLine("It doesnt seem like that class is present right now");
-                        continueGame = false;
                         break;
                 }
             }
@@ -108,36 +137,12 @@ namespace AssignmentOneTextAdventure
         //This method is catching playerClass arg as param
         public static void GameIntro(int playerClass)
         {
+            GameArtworks gameArtworks = new GameArtworks();
+
             //New ascii art and colour
             Console.ForegroundColor = ConsoleColor.DarkYellow;
-                            string entranceArt = @"
-                                .,aadd""'    `""bbaa,.
-                            ,ad8888P'          `Y8888ba,
-                         ,a88888888              88888888a,
-                       a88888888888              88888888888a
-                     a8888888888888b,          ,d8888888888888a
-                    d8888888888888888b,_    _,d8888888888888888b
-                   d88888888888888888888888888888888888888888888b
-                  d8888888888888888888888888888888888888888888888b
-                 I888888888888888888888888888888888888888888888888I
-                ,88888888888888888888888888888888888888888888888888,
-                I8888888888888888PY8888888PY88888888888888888888888I
-                8888888888888888""  ""88888""  ""88888888888888888888888
-                8::::::::::::::'    `:::'    `:::::::::::::::::::::8
-                Ib:::::::::::""        ""        `::::::' `:::::::::dI
-                `8888888888P            Y88888888888P     Y88888888'
-                 Ib:::::::'              `:::::::::'       `:::::dI
-                  Yb::::""                  "":::::""           ""::dP
-                   Y88P                      Y8P               `P
-                    Y'                        ""
-                                                `:::::::::::;8""
-                       ""888888888888888888888888888888888888""
-                         `""8;::::::::::::::::::::::::::;8""'
-                            `""Ya;::::::::::::::::::;aP""'
-                                ``""""YYbbaaaaddPP""""''
-                                                                                 ";
+            Console.Write(gameArtworks.EntranceArt);
 
-            Console.Write(entranceArt);
             Console.ForegroundColor = ConsoleColor.DarkRed;
             Console.WriteLine("\nThe moon looms over the pyramids, you and your party stood at the base of the largest.");
 
@@ -153,9 +158,9 @@ namespace AssignmentOneTextAdventure
             {
                 Console.WriteLine("'I d-dont think i want to do this anymore' your mage stammers, your rogue nodding in agreement");
             }
-            else if (playerClass ==3 )
+            else if (playerClass == 3 )
             {
-                Console.WriteLine("'I d-dont think i want to do this anymore' your rogue stammers, your mage nodding in agreement");
+                Console.WriteLine("'I d-dont think i want to do this anymore' your warrior stammers, your mage nodding in agreement");
             }
 
             //Just dialog spaced by sleeps
@@ -173,8 +178,7 @@ namespace AssignmentOneTextAdventure
             Thread.Sleep(1000);
             Console.WriteLine("All those people who went missing had to get in somehow though, right?");
 
-            //Another switch in a while for choice validation
-            //NEEDS OPTIMISING WIP
+            //Another switch in a while loop for choice validation
             bool continueGame = false;
             
             while(continueGame == false)
@@ -189,8 +193,21 @@ namespace AssignmentOneTextAdventure
                         RoomOne.EntrancePuzzle();
                         break;
 
+                    case string b when b.Contains("light") || b.Contains("torch"):
+                        continueGame = true;
+                        RoomOne.EntrancePuzzle();
+                        break;
+
+                    case string c when c.Contains("feel") || c.Contains("touch"):
+                        Console.WriteLine("You feel about on the wall and find some carvings that you cant make out, if only you had some light.");
+                        break;
+
+                    case String d when d.Contains("hint"):
+                        Console.WriteLine("There is something on the wall, maybe try lighting a torch.");
+                        break;
+
                     default:
-                        Console.WriteLine("Hmm im not sure i can do that right now");
+                        Console.WriteLine("\nHmm im not sure i can do that right now");
                         break;
                 }
             }              
