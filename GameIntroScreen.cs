@@ -18,9 +18,9 @@ namespace AssignmentOneTextAdventure
             set { playerName = value; }
         }
 
-        private int playerClass;
+        private static int playerClass;
 
-        public int PlayerClass
+        public static int PlayerClass
         {
             get { return playerClass; }
             set { playerClass = value; }
@@ -91,36 +91,36 @@ namespace AssignmentOneTextAdventure
                 switch (classChoice)
                 {
                     case string a when a.Contains("mage"):
-                        gameIntroScreen.playerClass = 1;
+                        GameIntroScreen.PlayerClass = 1;
                         Console.WriteLine("\nYou, the Mage, approach the entrance first...");
                         Console.ForegroundColor = ConsoleColor.Gray;
                         Console.WriteLine("\nPress enter to continue...");
                         Console.ReadKey();
                         Console.Clear();
                         continueGame = true;
-                        GameIntro(gameIntroScreen.playerClass);
+                        GameIntro(GameIntroScreen.PlayerClass);
                         break;
 
                     case string b when b.Contains("warrior"):
-                        gameIntroScreen.playerClass = 2;
+                        GameIntroScreen.PlayerClass = 2;
                         Console.WriteLine("\nYou, the Warrior, approach the entrance first...");
                         Console.ForegroundColor = ConsoleColor.Gray;
                         Console.WriteLine("\nPress enter to continue...");
                         Console.ReadKey();
                         Console.Clear();
                         continueGame = true;
-                        GameIntro(gameIntroScreen.playerClass);
+                        GameIntro(GameIntroScreen.PlayerClass);
                         break;
 
                     case string c when c.Contains("rogue"):
-                        gameIntroScreen.playerClass = 3;
+                        GameIntroScreen.PlayerClass = 3;
                         Console.WriteLine("\nYou, the Rogue, approach the entrance first...");
                         Console.ForegroundColor = ConsoleColor.Gray;
                         Console.WriteLine("\nPress enter to continue...");
                         Console.ReadKey();
                         Console.Clear();
                         continueGame = true;
-                        GameIntro(gameIntroScreen.playerClass);
+                        GameIntro(GameIntroScreen.PlayerClass);
                         break;
 
                     case string d when d.Contains("hint"):

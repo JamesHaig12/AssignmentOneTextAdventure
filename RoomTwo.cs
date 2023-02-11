@@ -38,7 +38,7 @@ namespace AssignmentOneTextAdventure
                             break;
 
                         case string b when b.Contains("forward") || b.Contains("back"):
-                            Console.WriteLine("You manage to step {0} in time as the spikes shoot down from the cieling");
+                            Console.WriteLine("You manage to step {0} in time as the spikes shoot down from the cieling", b);
                             Thread.Sleep(1000);
                             Console.WriteLine("You look up to see them slowly retracting");
                             Thread.Sleep(1000);
@@ -90,8 +90,9 @@ namespace AssignmentOneTextAdventure
                     case string a when a.Contains("yes"):
                         Random rnd2 = new Random();
                         int chance2 = rnd2.Next(1, 20);
-                        if(chance2 > 5)
+                        if(chance2 > 0)
                         {
+                            GameIntroScreen gameIntroScreen = new GameIntroScreen();
                             Console.WriteLine("As you approach, the chest rumbles for a second...");
                             Thread.Sleep(1000);
                             Console.WriteLine("The chest bursts open! Revealing shiny white teeth and a glistening purple tongue");
@@ -104,20 +105,14 @@ namespace AssignmentOneTextAdventure
                             continueGame2 = true;
                             Mimic.MimicFight();
                         }
-                        else
-                        {
-                            Console.WriteLine("You lift open the lid to the chest reavealing glistening gold");
-                            Thread.Sleep(1000);
-                            Console.WriteLine("A dig through the chest finds you what youre looking for");
-                            Thread.Sleep(1000);
-                            Console.WriteLine("The key... At least... It must be right?");
-                            continueGame2 = true;
-                            TreasureRoomPartTwo();
-                        }
+                        break;
+
+                    case string b when b.Contains("no"):
+                        Console.WriteLine("But it's so shiny though");
                         break;
 
                     default:
-                        Console.WriteLine("I really do need to find a key to that gate though...");
+                        Console.WriteLine("Is that a yes or a no?");
                         break;
                 }
             }
