@@ -27,8 +27,9 @@ namespace AssignmentOneTextAdventure
             Console.WriteLine("'Appears to be a riddle of some kind' you think to yourself");
 
             bool continueGame = false;
+            int timesHinted = 0;
 
-            while(continueGame == false)
+            while (continueGame == false)
             {
                 Console.WriteLine("\nWhat is the answer of the riddle?");
                 string riddleAnswer = Console.ReadLine().ToLower();
@@ -45,8 +46,21 @@ namespace AssignmentOneTextAdventure
                         continueGame = true;
                         break;
 
-                    case string b when b.Contains("hint"):
-                        Console.WriteLine("Think of the times of day more of the times of this things lifetime.");
+                    case string b when b.Contains("hint"):                      
+                        timesHinted ++;
+                        Console.WriteLine("Think of the times of day more of the times of the answers lifetime.");
+                        if(timesHinted > 2)
+                        {
+                            Console.WriteLine("Its something you see on a regular basis, if you went outside right now you would see many");
+                        }
+                        else if(timesHinted > 5)
+                        {
+                            Console.WriteLine("This is a very famous riddle, it was told by the original sphinx in egyptian folklore");
+                        }
+                        else if(timesHinted > 10)
+                        {
+                            Console.WriteLine("Really struggling with this one huh? The answer is a human.");
+                        }
                         break;
 
                     default:
@@ -83,6 +97,10 @@ namespace AssignmentOneTextAdventure
                             Console.ForegroundColor = ConsoleColor.Gray;
                             Console.WriteLine("Press any key to continue...");
                             Console.ReadKey();
+                            break;
+
+                        case string b when b.Contains("hint"):
+                            Console.WriteLine("Something is coming at you from the right.");
                             break;
 
                         default:
@@ -140,14 +158,16 @@ namespace AssignmentOneTextAdventure
 
                             switch (goBackChoice)
                             {
-                                case string a when a.Contains("yes"):
+                                case string a when a.Contains("yes") || a.Contains("ok") || a.Contains("sure"):
                                     continueGame = true;
-                                    continueGame2 = true;
                                     Console.Clear();
                                     RoomTwo.TreasureRoom();
                                     break;
 
                                 case string c when c.Contains("no"):
+                                    break;
+
+                                default:
                                     break;
                             }
                         }
@@ -156,6 +176,10 @@ namespace AssignmentOneTextAdventure
 
                     case string c when c.Contains("hint"):
                         Console.WriteLine("Choose to move to either the doorway at the end or the doorway on the right.");
+                        break;
+
+                    default:
+                        Console.WriteLine("I should really choose which way to go");
                         break;
                 }
             }

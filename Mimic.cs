@@ -14,9 +14,11 @@ namespace AssignmentOneTextAdventure
             MimicNPC npc = new MimicNPC();
             Console.Clear();
             Console.WriteLine("The mimic springs at you but you manage to parry the first hit");
+            Thread.Sleep(1000);
             Console.ForegroundColor = ConsoleColor.Gray;
             Console.WriteLine("\nCombat has begun.");
             Console.ForegroundColor = ConsoleColor.DarkRed;
+            Thread.Sleep(1000);
             Console.WriteLine("\nYou leap into action, sword at the ready");
             Console.WriteLine(GameIntroScreen.PlayerClass);
 
@@ -38,7 +40,7 @@ namespace AssignmentOneTextAdventure
                     chanceToHitM = random.Next(1, 10);
                     damageM = random.Next(1, 5);
                     Console.WriteLine("\nThe mimic attempts to bite you");
-                    if(chanceToHitM > 7)
+                    if(chanceToHitM > 6)
                     {                       
                         Console.WriteLine("The Mimic lands its bite");
                         Console.WriteLine("You take {0} damage", damageM);
@@ -111,12 +113,23 @@ namespace AssignmentOneTextAdventure
                                 Console.WriteLine("You dont have enough mana for this yet");
                             }
                             break;
+
+                        case string d when d.Contains("hint"):
+                            Console.WriteLine("Combat has three moves, Light Attack, Heavy Attack and Special attack");
+                            Console.WriteLine("Whilst you were thinking of what to do the mimic found the opportunity for another attack");
+                            break;
                     }
                 }
                 Console.WriteLine("\nThe mimic stops in its tracks, turns lifeless and crashes to the ground.");
+                Thread.Sleep(1000);
                 Console.WriteLine("You won this fight... for now.");
-                Console.WriteLine("As its corpse settings something clangs onto the floor, the key!.");
+                Thread.Sleep(1000);
+                Console.WriteLine("As its corpse settles something clangs onto the floor from beneath it, the key!.");
+                Console.ForegroundColor = ConsoleColor.Gray;
+                Console.WriteLine("Press any key to continue...");
+                Console.ForegroundColor = ConsoleColor.DarkRed;
                 Console.ReadKey();
+                RoomThree.WeaponRoom();
             }
             else if (GameIntroScreen.PlayerClass == 2)
             {
@@ -136,7 +149,7 @@ namespace AssignmentOneTextAdventure
                     chanceToHitM2 = random.Next(1, 10);
                     damageM2 = random.Next(1, 5);
                     Console.WriteLine("\nThe mimic attempts to bite you");
-                    if (chanceToHitM2 > 7)
+                    if (chanceToHitM2 > 6)
                     {
                         Console.WriteLine("The Mimic lands its bite");
                         Console.WriteLine("You take {0} damage", damageM2);
@@ -209,12 +222,23 @@ namespace AssignmentOneTextAdventure
                                 Console.WriteLine("You dont have enough mana for this yet");
                             }
                             break;
+
+                        case string d when d.Contains("hint"):
+                            Console.WriteLine("Combat has three moves, Light Attack, Heavy Attack and Special attack");
+                            Console.WriteLine("Whilst you were thinking of what to do the mimic found the opportunity for another attack");
+                            break;
                     }
                 }
                 Console.WriteLine("\nThe mimic stops in its tracks, turns lifeless and crashes to the ground.");
+                Thread.Sleep(1000);
                 Console.WriteLine("You won this fight... for now.");
-                Console.WriteLine("As its corpse settings something clangs onto the floor, the key!.");
+                Thread.Sleep(1000);
+                Console.WriteLine("As its corpse settles something clangs onto the floor from beneath it, the key!.");
+                Console.ForegroundColor = ConsoleColor.Gray;
+                Console.WriteLine("Press any key to continue...");
+                Console.ForegroundColor = ConsoleColor.DarkRed;
                 Console.ReadKey();
+                RoomThree.WeaponRoom();
             }
             else if (GameIntroScreen.PlayerClass == 3)
             {
@@ -234,7 +258,7 @@ namespace AssignmentOneTextAdventure
                     chanceToHitM3 = random.Next(1, 10);
                     damageM3 = random.Next(1, 5);
                     Console.WriteLine("\nThe mimic attempts to bite you");
-                    if (chanceToHitM3 > 7)
+                    if (chanceToHitM3 > 6)
                     {
                         Console.WriteLine("The Mimic lands its bite");
                         Console.WriteLine("You take {0} damage", damageM3);
@@ -307,12 +331,23 @@ namespace AssignmentOneTextAdventure
                                 Console.WriteLine("You dont have enough mana for this yet");
                             }
                             break;
+
+                        case string d when d.Contains("hint"):
+                            Console.WriteLine("Combat has three moves, Light Attack, Heavy Attack and Special attack");
+                            Console.WriteLine("Whilst you were thinking of what to do the mimic found the opportunity for another attack");
+                            break;
                     }
                 }
                 Console.WriteLine("\nThe mimic stops in its tracks, turns lifeless and crashes to the ground.");
+                Thread.Sleep(1000);
                 Console.WriteLine("You won this fight... for now.");
-                Console.WriteLine("As its corpse settings something clangs onto the floor, the key!.");
+                Thread.Sleep(1000);
+                Console.WriteLine("As its corpse settles something clangs onto the floor from beneath it, the key!.");
+                Console.ForegroundColor = ConsoleColor.Gray;
+                Console.WriteLine("Press any key to continue...");
+                Console.ForegroundColor = ConsoleColor.DarkRed;
                 Console.ReadKey();
+                RoomThree.WeaponRoom();
             }
         }
     }

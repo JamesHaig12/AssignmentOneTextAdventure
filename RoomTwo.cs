@@ -83,8 +83,9 @@ namespace AssignmentOneTextAdventure
             Console.ForegroundColor = ConsoleColor.DarkRed;
 
             bool continueGame2 = false;
+            int timesNo = 0;
 
-            while(continueGame2 == false)
+            while (continueGame2 == false)
             {
                 Console.WriteLine("\nSearch the chest?");
                 string chestChoice = Console.ReadLine().ToLower();
@@ -111,8 +112,21 @@ namespace AssignmentOneTextAdventure
                         }
                         break;
 
-                    case string b when b.Contains("no"):
+                    case string b when b.Contains("no"):                       
+                        timesNo++;
                         Console.WriteLine("But it's so shiny though");
+                        if(timesNo > 1)
+                        {
+                            Console.WriteLine("Seriously, look at how shiny it is!");
+                        }
+                        else if(timesNo > 2)
+                        {
+                            Console.WriteLine("Just open the chest god damnit what kind of adventurer are you?");
+                        }
+                        break;
+
+                    case string c when c.Contains("hint"):
+                        Console.WriteLine("Yes or No");
                         break;
 
                     default:
@@ -120,11 +134,6 @@ namespace AssignmentOneTextAdventure
                         break;
                 }
             }
-        }
-
-        public static void TreasureRoomPartTwo()
-        {
-
         }
     }
 }

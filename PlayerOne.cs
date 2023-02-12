@@ -26,5 +26,11 @@ namespace AssignmentOneTextAdventure
             get { return stamina; }
             set { stamina = value; }
         }
+        private int armour = 0;
+        public int Armour
+        {
+            get { return armour; }
+            set { armour = value; }
+        }
     }
 }

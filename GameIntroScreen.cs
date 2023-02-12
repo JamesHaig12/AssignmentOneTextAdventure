@@ -37,6 +37,66 @@ namespace AssignmentOneTextAdventure
             //Calls the window resizer script in my other class to maximise the window on startup
             WindowResizer.ResizeWindow();
 
+            //Will be save load function
+            /*Console.WriteLine("MAIN MENU");
+            Console.WriteLine("=============================");
+            bool continueApp = false;
+
+            while(continueApp == false)
+            {
+                Console.WriteLine("\nNew Game Or Load Save?");
+                string userLoadSave = Console.ReadLine().ToLower();
+
+                switch (userLoadSave)
+                {
+                    case string a when a.Contains("new"):
+                        continueApp = true;
+                        break;
+
+                    case string b when b.Contains("load") || b.Contains("save"):
+                        Console.WriteLine("Please enter your name you entered at the start of your game");
+                        string userName = Console.ReadLine().ToLower();
+                        String line;
+                        try
+                        {
+                            StreamReader sr = new StreamReader(@"C:/Documents/Test.txt");
+                            line = sr.ReadLine();
+                            while( line != null)
+                            {
+                                if(line.Contains(userName))
+                                {
+                                    if (line.Contains("1"))
+                                    {
+                                        continueApp = true;
+                                        ClassSelection();
+                                    }
+                                    else if (line.Contains("2"))
+                                    {
+                                        GameIntro(playerClass);
+                                    }
+                                    else if (line.Contains("3"))
+                                    {
+                                        RoomOne.EntrancePuzzle();
+                                    }
+                                }
+                                line = sr.ReadLine();
+                            }                           
+                            sr.Close();
+                        }
+                        catch(Exception e)
+                        {
+                            Console.WriteLine("Exception: " + e.Message);
+                        }
+                        finally
+                        {
+                            Console.WriteLine("Executing Finally Block");
+                        }
+                        continueApp = true;
+                        break;
+                }
+
+            }*/
+
             //Tutorial
             Console.ForegroundColor = ConsoleColor.Blue;
             Console.WriteLine("Hello and welcome to my game!");
@@ -62,7 +122,7 @@ namespace AssignmentOneTextAdventure
             Console.WriteLine("What is your name traveller?");
             gameIntroScreen.playerName = Console.ReadLine();
             Console.WriteLine("Welcome, {0}, to...", gameIntroScreen.playerName);
-            Thread.Sleep(1000);
+            Thread.Sleep(2000);
             Console.Clear();
      
             Console.Write(gameArtworks.MenuArt);
@@ -125,7 +185,7 @@ namespace AssignmentOneTextAdventure
 
                     case string d when d.Contains("hint"):
                         Console.WriteLine("Please type the name of the class you would like to choose");
-                        break;
+                        break;                 
 
                     default:
                         Console.WriteLine("It doesnt seem like that class is present right now");
@@ -138,6 +198,7 @@ namespace AssignmentOneTextAdventure
         public static void GameIntro(int playerClass)
         {
             GameArtworks gameArtworks = new GameArtworks();
+            GameIntroScreen gameIntroScreen = new GameIntroScreen();
 
             //New ascii art and colour
             Console.ForegroundColor = ConsoleColor.DarkYellow;
@@ -205,6 +266,29 @@ namespace AssignmentOneTextAdventure
                     case String d when d.Contains("hint"):
                         Console.WriteLine("There is something on the wall, maybe try lighting a torch.");
                         break;
+
+                    /*case string e when e.Contains("save"):
+                        Console.WriteLine("Saving game");
+                        try
+                        {
+                            //Pass the filepath and filename to the StreamWriter Constructor
+                            StreamWriter sw = new StreamWriter(@"C:\Documents\Test.txt");
+                            //Write a line of text
+                            sw.WriteLine(GameIntroScreen.playerClass + gameIntroScreen.PlayerName);
+                            //Close the file
+                            sw.Close();
+                        }
+                        catch (Exception f)
+                        {
+                            Console.WriteLine("Exception: " + f.Message);
+                        }
+                        finally
+                        {
+                            Console.WriteLine("Executing finally block.");
+                        }
+                        GameSaved.GameSavedScreen();
+                        continueGame = true;
+                        break;*/
 
                     default:
                         Console.WriteLine("\nHmm im not sure i can do that right now");
