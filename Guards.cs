@@ -57,33 +57,39 @@ namespace AssignmentOneTextAdventure
                     Console.ForegroundColor = ConsoleColor.DarkRed;
                     chanceToHitM = random.Next(1, 10);
                     damageM = random.Next(1, 5);
-                    Console.WriteLine("\nThe axe guard swings his giant waraxe in your direction");
-                    if (chanceToHitM > 6)
+                    if(npc.Health > 0)
                     {
-                        Console.WriteLine("The guard lands its hit");
-                        Console.WriteLine("You take {0} damage", damageM - playerOne.Armour);
-                        playerOne.Health -= damageM - playerOne.Armour;
-                        Console.WriteLine("HP: {0}", playerOne.Health);
-                    }
-                    else
-                    {
-                        Console.WriteLine("You dodge the attack");
+                        Console.WriteLine("\nThe axe guard swings his giant waraxe in your direction");
+                        if (chanceToHitM > 6)
+                        {
+                            Console.WriteLine("The guard lands its hit");
+                            Console.WriteLine("You take {0} damage", damageM - playerOne.Armour);
+                            playerOne.Health -= damageM - playerOne.Armour;
+                            Console.WriteLine("HP: {0}", playerOne.Health);
+                        }
+                        else
+                        {
+                            Console.WriteLine("You dodge the attack");
+                        }
                     }
 
-                    Console.ForegroundColor = ConsoleColor.DarkRed;
-                    chanceToHitM2 = random.Next(1, 10);
-                    damageM2 = random.Next(1, 5);
-                    Console.WriteLine("\nThe lance guard lunges at you at lightning speed");
-                    if (chanceToHitM2 > 6)
+                    if(npc2.Health > 0)
                     {
-                        Console.WriteLine("The guard lands its hit");
-                        Console.WriteLine("You take {0} damage", damageM2 - playerOne.Armour);
-                        playerOne.Health -= damageM2 - playerOne.Armour;
-                        Console.WriteLine("HP: {0}", playerOne.Health);
-                    }
-                    else
-                    {
-                        Console.WriteLine("You parry its lunge and stagger back");
+                        Console.ForegroundColor = ConsoleColor.DarkRed;
+                        chanceToHitM2 = random.Next(1, 10);
+                        damageM2 = random.Next(1, 5);
+                        Console.WriteLine("\nThe lance guard lunges at you at lightning speed");
+                        if (chanceToHitM2 > 6)
+                        {
+                            Console.WriteLine("The guard lands its hit");
+                            Console.WriteLine("You take {0} damage", damageM2 - playerOne.Armour);
+                            playerOne.Health -= damageM2 - playerOne.Armour;
+                            Console.WriteLine("HP: {0}", playerOne.Health);
+                        }
+                        else
+                        {
+                            Console.WriteLine("You parry its lunge and stagger back");
+                        }
                     }
 
                     if (playerOne.Health < 0)
@@ -114,7 +120,7 @@ namespace AssignmentOneTextAdventure
                                     npc.Health -= damagePL + playerOne.DamageBuff;
                                     Console.WriteLine("Axe Guard Health: {0}", npc.Health);
                                 }
-                                else if(whichGuard == 2 && npc2.Health > 0)
+                                else if(npc2.Health > 0)
                                 {
                                     npc2.Health -= damagePL + playerOne.DamageBuff;
                                     Console.WriteLine("Lance Guard Health: {0}", npc2.Health);
@@ -137,7 +143,7 @@ namespace AssignmentOneTextAdventure
                                     npc.Health -= damagePH + playerOne.DamageBuff;
                                     Console.WriteLine("Axe Guard Health: {0}", npc.Health);
                                 }
-                                else if (whichGuard == 2 && npc2.Health > 0)
+                                else if (npc2.Health > 0)
                                 {
                                     npc2.Health -= damagePH + playerOne.DamageBuff;
                                     Console.WriteLine("Lance Guard: {0}", npc2.Health);
@@ -162,7 +168,7 @@ namespace AssignmentOneTextAdventure
                                     npc.Health -= damagePS + playerOne.DamageBuff;
                                     Console.WriteLine("Axe Guard Health: {0}", npc.Health);
                                 }
-                                else if (whichGuard == 2 && npc2.Health > 0)
+                                else if (npc2.Health > 0)
                                 {
                                     npc2.Health -= damagePS + playerOne.DamageBuff;
                                     Console.WriteLine("Lance Guard: {0}", npc2.Health);
@@ -211,33 +217,39 @@ namespace AssignmentOneTextAdventure
                     Console.ForegroundColor = ConsoleColor.DarkRed;
                     chanceToHitM3 = random.Next(1, 10);
                     damageM3 = random.Next(1, 5);
-                    Console.WriteLine("\nThe axe guard swings his giant waraxe in your direction");
-                    if (chanceToHitM3 > 6)
+                    if (npc.Health > 0)
                     {
-                        Console.WriteLine("The guard lands its hit");
-                        Console.WriteLine("You take {0} damage", damageM3 - playerOne.Armour);
-                        playerOne.Health -= damageM3 - playerOne.Armour;
-                        Console.WriteLine("HP: {0}", playerOne.Health);
-                    }
-                    else
-                    {
-                        Console.WriteLine("You dodge the attack");
+                        Console.WriteLine("\nThe axe guard swings his giant waraxe in your direction");
+                        if (chanceToHitM3 > 6)
+                        {
+                            Console.WriteLine("The guard lands its hit");
+                            Console.WriteLine("You take {0} damage", damageM3 - playerOne.Armour);
+                            playerOne.Health -= damageM3 - playerOne.Armour;
+                            Console.WriteLine("HP: {0}", playerOne.Health);
+                        }
+                        else
+                        {
+                            Console.WriteLine("You dodge the attack");
+                        }
                     }
 
-                    Console.ForegroundColor = ConsoleColor.DarkRed;
-                    chanceToHitM4 = random.Next(1, 10);
-                    damageM4 = random.Next(1, 5);
-                    Console.WriteLine("\nThe lance guard lunges at you at lightning speed");
-                    if (chanceToHitM4 > 6)
+                    if (npc2.Health > 0)
                     {
-                        Console.WriteLine("The guard lands its hit");
-                        Console.WriteLine("You take {0} damage", damageM4 - playerOne.Armour);
-                        playerOne.Health -= damageM4 - playerOne.Armour;
-                        Console.WriteLine("HP: {0}", playerOne.Health);
-                    }
-                    else
-                    {
-                        Console.WriteLine("You parry its lunge and stagger back");
+                        Console.ForegroundColor = ConsoleColor.DarkRed;
+                        chanceToHitM4 = random.Next(1, 10);
+                        damageM4 = random.Next(1, 5);
+                        Console.WriteLine("\nThe lance guard lunges at you at lightning speed");
+                        if (chanceToHitM4 > 6)
+                        {
+                            Console.WriteLine("The guard lands its hit");
+                            Console.WriteLine("You take {0} damage", damageM4 - playerOne.Armour);
+                            playerOne.Health -= damageM4 - playerOne.Armour;
+                            Console.WriteLine("HP: {0}", playerOne.Health);
+                        }
+                        else
+                        {
+                            Console.WriteLine("You parry its lunge and stagger back");
+                        }
                     }
 
                     if (playerOne.Health < 0)
@@ -268,7 +280,7 @@ namespace AssignmentOneTextAdventure
                                     npc.Health -= damagePL2 + playerOne.DamageBuff;
                                     Console.WriteLine("Axe Guard Health: {0}", npc.Health);
                                 }
-                                else if (whichGuard2 == 2 && npc2.Health > 0)
+                                else if (npc2.Health > 0)
                                 {
                                     npc2.Health -= damagePL2 + playerOne.DamageBuff;
                                     Console.WriteLine("Lance Guard Health: {0}", npc2.Health);
@@ -291,7 +303,7 @@ namespace AssignmentOneTextAdventure
                                     npc.Health -= damagePH2 + playerOne.DamageBuff;
                                     Console.WriteLine("Axe Guard Health: {0}", npc.Health);
                                 }
-                                else if (whichGuard2 == 2 && npc2.Health > 0)
+                                else if (npc2.Health > 0)
                                 {
                                     npc2.Health -= damagePH2 + playerOne.DamageBuff;
                                     Console.WriteLine("Lance Guard Health: {0}", npc2.Health);
@@ -316,7 +328,7 @@ namespace AssignmentOneTextAdventure
                                     npc.Health -= damagePS2 + playerOne.DamageBuff;
                                     Console.WriteLine("Axe Guard Health: {0}", npc.Health);
                                 }
-                                else if (whichGuard2 == 2 && npc2.Health > 0)
+                                else if (npc2.Health > 0)
                                 {
                                     npc2.Health -= damagePS2 + playerOne.DamageBuff;
                                     Console.WriteLine("Lance Guard Health: {0}", npc2.Health);
@@ -365,33 +377,39 @@ namespace AssignmentOneTextAdventure
                     Console.ForegroundColor = ConsoleColor.DarkRed;
                     chanceToHitM5 = random.Next(1, 10);
                     damageM5 = random.Next(1, 5);
-                    Console.WriteLine("\nThe axe guard swings his giant waraxe in your direction");
-                    if (chanceToHitM5 > 5)
+                    if (npc.Health > 0)
                     {
-                        Console.WriteLine("The guard lands its hit");
-                        Console.WriteLine("You take {0} damage", damageM5 - playerOne.Armour);
-                        playerOne.Health -= damageM5 - playerOne.Armour;
-                        Console.WriteLine("HP: {0}", playerOne.Health);
-                    }
-                    else
-                    {
-                        Console.WriteLine("You dodge the attack");
+                        Console.WriteLine("\nThe axe guard swings his giant waraxe in your direction");
+                        if (chanceToHitM5 > 6)
+                        {
+                            Console.WriteLine("The guard lands its hit");
+                            Console.WriteLine("You take {0} damage", damageM5 - playerOne.Armour);
+                            playerOne.Health -= damageM5 - playerOne.Armour;
+                            Console.WriteLine("HP: {0}", playerOne.Health);
+                        }
+                        else
+                        {
+                            Console.WriteLine("You dodge the attack");
+                        }
                     }
 
-                    Console.ForegroundColor = ConsoleColor.DarkRed;
-                    chanceToHitM6 = random.Next(1, 10);
-                    damageM6 = random.Next(1, 5);
-                    Console.WriteLine("\nThe lance guard lunges at you at lightning speed");
-                    if (chanceToHitM6 > 5)
+                    if (npc2.Health > 0)
                     {
-                        Console.WriteLine("The guard lands its hit");
-                        Console.WriteLine("You take {0} damage", damageM6 - playerOne.Armour);
-                        playerOne.Health -= damageM6 - playerOne.Armour;
-                        Console.WriteLine("HP: {0}", playerOne.Health);
-                    }
-                    else
-                    {
-                        Console.WriteLine("You parry its lunge and stagger back");
+                        Console.ForegroundColor = ConsoleColor.DarkRed;
+                        chanceToHitM6 = random.Next(1, 10);
+                        damageM6 = random.Next(1, 5);
+                        Console.WriteLine("\nThe lance guard lunges at you at lightning speed");
+                        if (chanceToHitM6 > 6)
+                        {
+                            Console.WriteLine("The guard lands its hit");
+                            Console.WriteLine("You take {0} damage", damageM6 - playerOne.Armour);
+                            playerOne.Health -= damageM6 - playerOne.Armour;
+                            Console.WriteLine("HP: {0}", playerOne.Health);
+                        }
+                        else
+                        {
+                            Console.WriteLine("You parry its lunge and stagger back");
+                        }
                     }
 
                     if (playerOne.Health < 0)
@@ -422,7 +440,7 @@ namespace AssignmentOneTextAdventure
                                     npc.Health -= damagePL3 + playerOne.DamageBuff;
                                     Console.WriteLine("Axe Guard Health: {0}", npc.Health);
                                 }
-                                else if (whichGuard3 == 2 && npc2.Health > 0)
+                                else if (npc2.Health > 0)
                                 {
                                     npc2.Health -= damagePL3 + playerOne.DamageBuff;
                                     Console.WriteLine("Lance Guard Health: {0}", npc2.Health);
@@ -445,7 +463,7 @@ namespace AssignmentOneTextAdventure
                                     npc.Health -= damagePH3 + playerOne.DamageBuff;
                                     Console.WriteLine("Axe Guard Health: {0}", npc.Health);
                                 }
-                                else if (whichGuard3 == 2 && npc2.Health > 0)
+                                else if (npc2.Health > 0)
                                 {
                                     npc2.Health -= damagePH3 + playerOne.DamageBuff;
                                     Console.WriteLine("Lance Guard Health: {0}", npc2.Health);
@@ -470,7 +488,7 @@ namespace AssignmentOneTextAdventure
                                     npc.Health -= damagePS3 + playerOne.DamageBuff;
                                     Console.WriteLine("Axe Guard Health: {0}", npc.Health);
                                 }
-                                else if (whichGuard3 == 2 && npc2.Health > 0)
+                                else if (npc2.Health > 0)
                                 {
                                     npc2.Health -= damagePS3 + playerOne.DamageBuff;
                                     Console.WriteLine("Lance Guard Health: {0}", npc2.Health);
