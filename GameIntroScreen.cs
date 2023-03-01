@@ -6,11 +6,14 @@ using System.Threading.Tasks;
 using System.Security.Cryptography.X509Certificates;
 using System.Runtime.InteropServices;
 using System.Runtime.CompilerServices;
+using System.Diagnostics;
 
 namespace AssignmentOneTextAdventure
 {
     public class GameIntroScreen
     {
+        public static readonly Stopwatch timer = new Stopwatch();
+
         private static string? playerName;
         public static string PlayerName
         {
@@ -44,12 +47,35 @@ namespace AssignmentOneTextAdventure
 
             while(continueApp == false)
             {
-                Console.WriteLine("\nNew Game Or Load Save?");
+                Console.WriteLine("\nNew Game Or Load Save Or Display The Leaderboard?");
                 string userLoadSave = Console.ReadLine().ToLower();
 
                 switch (userLoadSave)
                 {
                     case string a when a.Contains("new"):
+                        continueApp = true;
+                        break;
+
+                    case string c when c.Contains("leaderboard"):
+                        FileStream f = new FileStream("E:\\Leaderboard.txt", FileMode.Open);
+                        string fileName = "E:\\Leaderboard.txt";
+                        if (File.Exists(fileName))
+                        {
+                            // Open the file containing the saved game state
+                            using (StreamReader reader = new StreamReader(f))
+                            {
+                                string text = reader.ReadToEnd();
+                                Console.WriteLine("\n"+text);
+                                Console.ForegroundColor = ConsoleColor.Gray;
+                                Console.WriteLine("\nPress Any Key To Continue");
+                                Console.ForegroundColor = ConsoleColor.DarkRed;
+                                Console.ReadKey();
+                            }
+                        }
+                        else
+                        {
+                            Console.WriteLine("No leaderboard found");                  
+                        }
                         continueApp = true;
                         break;
 
@@ -86,6 +112,8 @@ namespace AssignmentOneTextAdventure
             //Set colour of console to dark red and create ascii art for title
             Console.ForegroundColor = ConsoleColor.DarkRed;
 
+            timer.Start();
+
             //Gathering players name for future
             Console.Clear();
             Thread.Sleep(1000);
@@ -99,7 +127,7 @@ namespace AssignmentOneTextAdventure
             Console.WriteLine("\nThe great pyramid of Prestonia, known to all as the final resting place of the mighty Pharoah Uclaneses III. " +
                 "\nMany fear this place, only few have dared to enter... but none have returned. Will you?");
             Console.ForegroundColor = ConsoleColor.Gray;
-            Console.WriteLine("\nPress enter to continue...");
+            Console.WriteLine("\nPress any key to continue...");
             Console.ReadKey();
             Console.Clear();
             Console.ForegroundColor = ConsoleColor.DarkRed;
@@ -124,7 +152,7 @@ namespace AssignmentOneTextAdventure
                         GameIntroScreen.PlayerClass = 1;
                         Console.WriteLine("\nYou, the Mage, approach the entrance first...");
                         Console.ForegroundColor = ConsoleColor.Gray;
-                        Console.WriteLine("\nPress enter to continue...");
+                        Console.WriteLine("\nPress any key to continue...");
                         Console.ReadKey();
                         Console.Clear();
                         continueGame = true;
@@ -135,7 +163,7 @@ namespace AssignmentOneTextAdventure
                         GameIntroScreen.PlayerClass = 2;
                         Console.WriteLine("\nYou, the Warrior, approach the entrance first...");
                         Console.ForegroundColor = ConsoleColor.Gray;
-                        Console.WriteLine("\nPress enter to continue...");
+                        Console.WriteLine("\nPress any key to continue...");
                         Console.ReadKey();
                         Console.Clear();
                         continueGame = true;
@@ -146,7 +174,7 @@ namespace AssignmentOneTextAdventure
                         GameIntroScreen.PlayerClass = 3;
                         Console.WriteLine("\nYou, the Rogue, approach the entrance first...");
                         Console.ForegroundColor = ConsoleColor.Gray;
-                        Console.WriteLine("\nPress enter to continue...");
+                        Console.WriteLine("\nPress any key to continue...");
                         Console.ReadKey();
                         Console.Clear();
                         continueGame = true;
@@ -202,7 +230,7 @@ namespace AssignmentOneTextAdventure
             Console.WriteLine("You watch as your fellow party members scamper back off to saftey, shaking your head.");
             Thread.Sleep(1000);
             Console.ForegroundColor = ConsoleColor.Gray;
-            Console.WriteLine("\nPress enter to continue...");
+            Console.WriteLine("\nPress any key to continue...");
             Console.ReadKey();
             Console.Clear();
             Console.ForegroundColor = ConsoleColor.DarkRed;

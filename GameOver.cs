@@ -12,7 +12,13 @@ namespace AssignmentOneTextAdventure
         {
             Console.Clear();
             Console.WriteLine("GAME OVER");
-            Console.WriteLine("Press any key to exit...");
+            Thread.Sleep(1000);
+            Console.WriteLine("\nYou died, better luck next time");
+            Thread.Sleep(1000);
+            Console.WriteLine("Please be sure to come back and try again");
+            Console.ForegroundColor = ConsoleColor.Gray;
+            Console.WriteLine("\nPress Any Key To Exit");
+            Console.ForegroundColor = ConsoleColor.DarkRed;
             Console.ReadKey();
             Environment.Exit(0);
         }

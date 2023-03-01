@@ -13,7 +13,7 @@ namespace AssignmentOneTextAdventure
             PlayerOne playerOne = new PlayerOne(); 
             GameIntroScreen gameIntroScreen = new GameIntroScreen();
 
-            FileStream f = new FileStream("E:\\" + GameIntroScreen.PlayerName + "_save.txt", FileMode.Create);
+            FileStream f = new FileStream("\\Assets\\" + GameIntroScreen.PlayerName + "_save.txt", FileMode.Create);
             //string fileName = gameIntroScreen.PlayerName + "_save.txt";
             using (StreamWriter writer = new StreamWriter(f))
             {
@@ -47,8 +47,8 @@ namespace AssignmentOneTextAdventure
             PlayerOne playerOne = new PlayerOne();
             GameIntroScreen gameIntroScreen = new GameIntroScreen();
 
-            FileStream f = new FileStream("E:\\" + GameIntroScreen.PlayerName + "_save.txt", FileMode.Open);
-            string fileName = "E:\\" + GameIntroScreen.PlayerName + "_save.txt";
+            FileStream f = new FileStream("\\Assets" + GameIntroScreen.PlayerName + "_save.txt", FileMode.Open);
+            string fileName = "\\Assets\\" + GameIntroScreen.PlayerName + "_save.txt";
             if (File.Exists(fileName))
             {
                 // Open the file containing the saved game state
