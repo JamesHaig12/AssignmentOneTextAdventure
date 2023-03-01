@@ -73,7 +73,7 @@ namespace AssignmentOneTextAdventure
             Console.ForegroundColor = ConsoleColor.DarkYellow;
             Console.WriteLine(gameArtworks.CorridorArt);
             Console.ForegroundColor = ConsoleColor.Gray;
-            Console.WriteLine("Press any key to continue...");
+            Console.WriteLine("\nPress any key to continue...");
             Console.ReadKey();
             Console.ForegroundColor = ConsoleColor.DarkRed;
             Random rnd = new Random();
@@ -95,7 +95,7 @@ namespace AssignmentOneTextAdventure
                             Console.WriteLine("\nYou manage to {0} out of the way in time as a large spear shoots to the other side of the hallway, sinking into the wall.", a);
                             continueGame = true;
                             Console.ForegroundColor = ConsoleColor.Gray;
-                            Console.WriteLine("Press any key to continue...");
+                            Console.WriteLine("\nPress any key to continue...");
                             Console.ReadKey();
                             break;
 
@@ -113,7 +113,7 @@ namespace AssignmentOneTextAdventure
                             Console.WriteLine("{0} HP: {1}",gameIntroScreen.PlayerName, playerOne.Health);
                             continueGame = true;
                             Console.ForegroundColor = ConsoleColor.Gray;
-                            Console.WriteLine("Press any key to continue...");
+                            Console.WriteLine("\nPress any key to continue...");
                             Console.ReadKey();
                             break;
                     }

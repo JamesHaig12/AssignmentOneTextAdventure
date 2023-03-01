@@ -18,7 +18,7 @@ namespace AssignmentOneTextAdventure
 
             if(chance > 4)
             {
-                Console.WriteLine("The light glints off some dust from the cieling, a shift in the tiles above");
+                Console.WriteLine("The light glints off some dust from the cieling, a shift in the tiles above, a quick breeze from above");
 
                 bool continueGame = false;
                 while(continueGame == false)
@@ -63,9 +63,9 @@ namespace AssignmentOneTextAdventure
                             break;
                     }
                 }
-                Console.WriteLine("As the dust settles you examine your surroundings");
+                Console.WriteLine("\nAs the dust settles you examine your surroundings");
                 Console.ForegroundColor = ConsoleColor.Gray;
-                Console.WriteLine("Press any key to continue...");
+                Console.WriteLine("\nPress any key to continue...");
                 Console.ReadKey();
             }
             
@@ -74,7 +74,13 @@ namespace AssignmentOneTextAdventure
             Console.Clear();
             Console.WriteLine("\nThe room is not too large, about 10 meters each way");
             Thread.Sleep(1000);
-            Console.WriteLine("Looking around, you see something that would excite any adventurer..");
+            Console.WriteLine("To the right of the doorway is a table, its chairs in disarray as though rushed out of");
+            Thread.Sleep(1000);
+            Console.WriteLine("In each corner is something different, to the left barrels, far right... crates");
+            Thread.Sleep(1000);
+            Console.WriteLine("And in the far left?... Nice");
+            Thread.Sleep(1000);
+            Console.WriteLine("You see something that would excite any adventurer..");
             Thread.Sleep(1000);
             Console.WriteLine(" ");
             Thread.Sleep(1000);
@@ -100,11 +106,11 @@ namespace AssignmentOneTextAdventure
                             GameIntroScreen gameIntroScreen = new GameIntroScreen();
                             Console.WriteLine("As you approach, the chest rumbles for a second...");
                             Thread.Sleep(1000);
-                            Console.WriteLine("The chest bursts open! Revealing shiny white teeth and a glistening purple tongue");
+                            Console.WriteLine("\nThe chest bursts open! Revealing shiny white teeth and a glistening purple tongue");
                             Thread.Sleep(1000);
                             Console.WriteLine("A Mimic!");
                             Console.ForegroundColor = ConsoleColor.Gray;
-                            Console.WriteLine("Press any key to continue...");
+                            Console.WriteLine("\nPress any key to continue...");
                             Console.ReadKey();
                             Console.ForegroundColor = ConsoleColor.DarkRed;
                             continueGame2 = true;

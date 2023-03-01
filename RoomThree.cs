@@ -73,8 +73,10 @@ namespace AssignmentOneTextAdventure
             Console.WriteLine(gameArtworks.CompassFloor);
             Console.ForegroundColor = ConsoleColor.DarkRed;
             Console.WriteLine("\nAt the end of each compass point is a pillar, each with a unique carving of an animal on it");
+            Thread.Sleep(1000);
             Console.WriteLine("In the middle of the compass you see a plinth");
-            if(GameIntroScreen.PlayerClass == 1)
+            Thread.Sleep(1000);
+            if (GameIntroScreen.PlayerClass == 1)
             {
                 Console.WriteLine("Upon the plinth you see an almighty staff, carved from what seems to be old mahogany wood");
                 WeaponPuzzle();
@@ -93,10 +95,15 @@ namespace AssignmentOneTextAdventure
 
         public static void WeaponPuzzle()
         {
+            Thread.Sleep(1000);
             Console.WriteLine("\nAround the plinth is a metal cage, you cannot fit your hand through the bars");
+            Thread.Sleep(1000);
             Console.WriteLine("There is a plaque attached to the plinth");
+            Thread.Sleep(1000);
             Console.WriteLine("\nThe plaque reads: The Grizzly Apex Predator, The Bird Of Freedom, The School Of The Sea");
+            Thread.Sleep(1000);
             Console.WriteLine("There is a button on the plinth that can be pressed");
+            Thread.Sleep(1000);
             Console.ForegroundColor = ConsoleColor.Gray;
             Console.WriteLine("\nFigure out the compass points the riddle aludes to");
             Console.ForegroundColor = ConsoleColor.DarkRed;
@@ -147,13 +154,12 @@ namespace AssignmentOneTextAdventure
 
                         while(continueGame2 == false)
                         {
-                            Console.WriteLine("What is your final guess of compass points?");
+                            Console.WriteLine("\nWhat is your final guess of compass points?");
                             string playerGuess = Console.ReadLine().ToLower();
 
                             switch (playerGuess)
                             {
-                                case string k when k.Contains("north") && k.Contains("east") && k.Contains("southwest") && 
-                                (!k.Contains("northeast") && (!k.Contains("southeast") && (!k.Contains("south") && (!k.Contains("west") && (!k.Contains("northwest")))))):
+                                case string k when k.Contains("north") && k.Contains("east") && k.Contains("southwest"):
                                     Console.Clear();
                                     Console.WriteLine("North, East, Southwest you say, and press the button.");
                                     PuzzleWinner();
@@ -180,14 +186,63 @@ namespace AssignmentOneTextAdventure
 
         public static void PuzzleWinner()
         {
-            Console.WriteLine("Win");
+            PlayerOne playerOne = new PlayerOne();
+            int newWeapon = 1;
+            playerOne.DamageBuff += 5;
+            
+            Console.WriteLine("\nYou hear a click, then another and another and another");
+            Thread.Sleep(1000);
+
+            if (GameIntroScreen.PlayerClass == 1)
+            {
+                Console.WriteLine("You watch as the metal cage surrounding the staff lifts away, allowing you to grab it");
+            }
+            else if (GameIntroScreen.PlayerClass == 2)
+            {
+                Console.WriteLine("You watch as the metal cage surrounding the axe lifts away, allowing you to grab it");
+            }
+            else if (GameIntroScreen.PlayerClass == 3)
+            {
+                Console.WriteLine("You watch as the metal cage surrounding the daggers lifts away, allowing you to grab them");
+            }
+
+            Console.WriteLine("\nYou reach out to grab the new weapon and admire its fine craftsmanship");
+            Thread.Sleep(1000);
+            Console.WriteLine("An overwhelimg sense of power rushes over you and you feel reinvigorated by it");
+            Console.ForegroundColor = ConsoleColor.Gray;
+            Console.WriteLine("\nPress Any Key To Continue");
+            Console.ForegroundColor = ConsoleColor.DarkRed;
             Console.ReadKey();
+            RoomFour.GuardsRoom(newWeapon);
         }
 
         public static void PuzzleLoser()
         {
-            Console.WriteLine("Lose");
+            int newWeapon = 0;
+
+            Console.WriteLine("\nYou hear a click, then another and another and another");
+            Thread.Sleep(1000);
+
+            if (GameIntroScreen.PlayerClass == 1)
+            {
+                Console.WriteLine("You watch as the metal cage surrounding the staff slams down, sending the staff down into the plinth never to be seen again");
+            }
+            else if (GameIntroScreen.PlayerClass == 2)
+            {
+                Console.WriteLine("You watch as the metal cage surrounding the axe slams down, sending the axe down into the plinth never to be seen again");
+            }
+            else if (GameIntroScreen.PlayerClass == 3)
+            {
+                Console.WriteLine("You watch as the metal cage surrounding the daggers slams down, sending the daggers down into the plinth never to be seen again");
+            }
+
+            Thread.Sleep(1000);
+            Console.WriteLine("'All that effort, for nothing....' you think to yourself");
+            Console.ForegroundColor = ConsoleColor.Gray;
+            Console.WriteLine("\nPress Any Key To Continue");
+            Console.ForegroundColor = ConsoleColor.DarkRed;
             Console.ReadKey();
+            RoomFour.GuardsRoom(newWeapon);
         }
     }
 }

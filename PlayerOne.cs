@@ -8,7 +8,7 @@ namespace AssignmentOneTextAdventure
 {
     public class PlayerOne
     {
-        private int health = 20;
+        private int health = 40;
         public int Health
         {
             get { return health; }
@@ -31,6 +31,13 @@ namespace AssignmentOneTextAdventure
         {
             get { return armour; }
             set { armour = value; }
+        }
+
+        private int damageBuff = 0;
+        public int DamageBuff
+        {
+            get { return damageBuff; }
+            set { damageBuff = value; }
         }
     }
 }

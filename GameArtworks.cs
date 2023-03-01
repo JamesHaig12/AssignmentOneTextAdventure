@@ -273,6 +273,25 @@ namespace AssignmentOneTextAdventure
                                                                                       
 
 ";
+
+        private readonly string bloodArt = @" 
+
+            
+             ▄▄▄▄    ██▓     ▒█████   ▒█████  ▓█████▄      ██████  ▄▄▄       ▄████▄   ██▀███   ██▓  █████▒██▓ ▄████▄  ▓█████ 
+            ▓█████▄ ▓██▒    ▒██▒  ██▒▒██▒  ██▒▒██▀ ██▌   ▒██    ▒ ▒████▄    ▒██▀ ▀█  ▓██ ▒ ██▒▓██▒▓██   ▒▓██▒▒██▀ ▀█  ▓█   ▀ 
+            ▒██▒ ▄██▒██░    ▒██░  ██▒▒██░  ██▒░██   █▌   ░ ▓██▄   ▒██  ▀█▄  ▒▓█    ▄ ▓██ ░▄█ ▒▒██▒▒████ ░▒██▒▒▓█    ▄ ▒███   
+            ▒██░█▀  ▒██░    ▒██   ██░▒██   ██░░▓█▄   ▌     ▒   ██▒░██▄▄▄▄██ ▒▓▓▄ ▄██▒▒██▀▀█▄  ░██░░▓█▒  ░░██░▒▓▓▄ ▄██▒▒▓█  ▄ 
+            ░▓█  ▀█▓░██████▒░ ████▓▒░░ ████▓▒░░▒████▓    ▒██████▒▒ ▓█   ▓██▒▒ ▓███▀ ░░██▓ ▒██▒░██░░▒█░   ░██░▒ ▓███▀ ░░▒████▒
+            ░▒▓███▀▒░ ▒░▓  ░░ ▒░▒░▒░ ░ ▒░▒░▒░  ▒▒▓  ▒    ▒ ▒▓▒ ▒ ░ ▒▒   ▓▒█░░ ░▒ ▒  ░░ ▒▓ ░▒▓░░▓   ▒ ░   ░▓  ░ ░▒ ▒  ░░░ ▒░ ░
+            ▒░▒   ░ ░ ░ ▒  ░  ░ ▒ ▒░   ░ ▒ ▒░  ░ ▒  ▒    ░ ░▒  ░ ░  ▒   ▒▒ ░  ░  ▒     ░▒ ░ ▒░ ▒ ░ ░      ▒ ░  ░  ▒    ░ ░  ░
+             ░    ░   ░ ░   ░ ░ ░ ▒  ░ ░ ░ ▒   ░ ░  ░    ░  ░  ░    ░   ▒   ░          ░░   ░  ▒ ░ ░ ░    ▒ ░░           ░   
+             ░          ░  ░    ░ ░      ░ ░     ░             ░        ░  ░░ ░         ░      ░          ░  ░ ░         ░  ░
+                  ░                            ░                            ░                                ░               
+
+
+";
+        
+        
         public string MenuArt { get { return menuArt; } }
         
         public string EntranceArt { get { return entranceArt; } }
@@ -286,5 +305,7 @@ namespace AssignmentOneTextAdventure
         public string ChestArtOpened {  get { return chestArtOpen; } }
 
         public string CompassFloor { get { return compassFloor; } }
+
+        public string BloodArt { get { return bloodArt; } }
     }
 }

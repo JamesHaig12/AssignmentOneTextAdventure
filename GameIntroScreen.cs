@@ -121,7 +121,7 @@ namespace AssignmentOneTextAdventure
             Thread.Sleep(1000);
             Console.WriteLine("What is your name traveller?");
             gameIntroScreen.playerName = Console.ReadLine();
-            Console.WriteLine("Welcome, {0}, to...", gameIntroScreen.playerName);
+            Console.WriteLine("\nWelcome, {0}, to...", gameIntroScreen.playerName);
             Thread.Sleep(2000);
             Console.Clear();
      
