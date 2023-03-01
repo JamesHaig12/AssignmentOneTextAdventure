@@ -20,7 +20,6 @@ namespace AssignmentOneTextAdventure
             Console.ForegroundColor = ConsoleColor.DarkRed;
             Thread.Sleep(1000);
             Console.WriteLine("\nYou leap into action, sword at the ready");
-            Console.WriteLine(GameIntroScreen.PlayerClass);
 
             if(GameIntroScreen.PlayerClass == 1)
             {
@@ -37,6 +36,7 @@ namespace AssignmentOneTextAdventure
 
                 while(npc.Health > 0)
                 {
+                    Console.ForegroundColor = ConsoleColor.DarkRed;
                     chanceToHitM = random.Next(1, 10);
                     damageM = random.Next(1, 5);
                     Console.WriteLine("\nThe mimic attempts to bite you");
@@ -56,7 +56,7 @@ namespace AssignmentOneTextAdventure
                     {
                         GameOver.GameoverScreen();
                     }
-
+                 
                     chanceToHitPL = random.Next(1, 10);
                     chanceToHitPH = random.Next(1, 10);
                     damagePL = random.Next(1, 5);
@@ -64,6 +64,7 @@ namespace AssignmentOneTextAdventure
                     damagePS = random.Next(10, 20);
                     Console.WriteLine("\nWhat do you do?");
                     string playerAttack = Console.ReadLine().ToLower();
+                    Console.ForegroundColor = ConsoleColor.DarkGreen;
 
                     switch (playerAttack)
                     {
@@ -115,6 +116,7 @@ namespace AssignmentOneTextAdventure
                             break;
 
                         case string d when d.Contains("hint"):
+                            Console.ForegroundColor = ConsoleColor.Gray;
                             Console.WriteLine("Combat has three moves, Light Attack, Heavy Attack and Special attack");
                             Console.WriteLine("Whilst you were thinking of what to do the mimic found the opportunity for another attack");
                             break;
@@ -146,6 +148,7 @@ namespace AssignmentOneTextAdventure
 
                 while (npc.Health > 0)
                 {
+                    Console.ForegroundColor = ConsoleColor.DarkRed;
                     chanceToHitM2 = random.Next(1, 10);
                     damageM2 = random.Next(1, 5);
                     Console.WriteLine("\nThe mimic attempts to bite you");
@@ -165,7 +168,7 @@ namespace AssignmentOneTextAdventure
                     {
                         GameOver.GameoverScreen();
                     }
-
+                  
                     chanceToHitPL2 = random.Next(1, 10);
                     chanceToHitPH2 = random.Next(1, 10);
                     damagePL2 = random.Next(1, 5);
@@ -173,6 +176,7 @@ namespace AssignmentOneTextAdventure
                     damagePS2 = random.Next(10, 20);
                     Console.WriteLine("\nWhat do you do?");
                     string playerAttack = Console.ReadLine().ToLower();
+                    Console.ForegroundColor = ConsoleColor.DarkGreen;
 
                     switch (playerAttack)
                     {
@@ -255,6 +259,7 @@ namespace AssignmentOneTextAdventure
 
                 while (npc.Health > 0)
                 {
+                    Console.ForegroundColor = ConsoleColor.DarkRed;
                     chanceToHitM3 = random.Next(1, 10);
                     damageM3 = random.Next(1, 5);
                     Console.WriteLine("\nThe mimic attempts to bite you");
@@ -282,6 +287,7 @@ namespace AssignmentOneTextAdventure
                     damagePS3 = random.Next(10, 20);
                     Console.WriteLine("\nWhat do you do?");
                     string playerAttack = Console.ReadLine().ToLower();
+                    Console.ForegroundColor = ConsoleColor.DarkGreen;
 
                     switch (playerAttack)
                     {
@@ -338,13 +344,14 @@ namespace AssignmentOneTextAdventure
                             break;
                     }
                 }
+                Console.ForegroundColor = ConsoleColor.DarkRed;
                 Console.WriteLine("\nThe mimic stops in its tracks, turns lifeless and crashes to the ground.");
                 Thread.Sleep(1000);
                 Console.WriteLine("You won this fight... for now.");
                 Thread.Sleep(1000);
                 Console.WriteLine("As its corpse settles something clangs onto the floor from beneath it, the key!.");
                 Console.ForegroundColor = ConsoleColor.Gray;
-                Console.WriteLine("Press any key to continue...");
+                Console.WriteLine("\nPress any key to continue...");
                 Console.ForegroundColor = ConsoleColor.DarkRed;
                 Console.ReadKey();
                 RoomThree.WeaponRoom();

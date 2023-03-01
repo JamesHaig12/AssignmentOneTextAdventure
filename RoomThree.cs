@@ -93,112 +93,56 @@ namespace AssignmentOneTextAdventure
 
         public static void WeaponPuzzle()
         {
-            string[] riddle = { "The Grizzly Apex Predator", "The Mountain Climber", "The Ship Of The Desert", "The Venomous Reptile", "The School Of The Sea",
-                                "The Bird Of Freedom", "The Tail Of A Spear", "The Brain Of The Ocean" };
-
-            Random rand = new Random();
-            int index = rand.Next(riddle.Length);
-            do
-            {
-                index = rand.Next(riddle.Length);
-            }
-            while(index == 1 || index == 2 || index == 6 || index == 4 || index == 3);
-            int index2 = rand.Next(riddle.Length);
-            do
-            {
-                index2 = rand.Next(riddle.Length);
-            }
-            while ((index2 == index) && (index == 1 || index == 2 || index == 6 || index == 4 || index == 3));
-            int index3 = rand.Next(riddle.Length);
-            do
-            {
-                index3 = rand.Next(riddle.Length);
-            }
-            while ((index3 == index || index3 == index2) && (index == 1 || index == 2 || index == 6 || index == 4 || index == 3));
-
             Console.WriteLine("\nAround the plinth is a metal cage, you cannot fit your hand through the bars");
             Console.WriteLine("There is a plaque attached to the plinth");
-            Console.WriteLine($"The plaque reads: {riddle[index]}, {riddle[index2]}, {riddle[index3]}");
+            Console.WriteLine("\nThe plaque reads: The Grizzly Apex Predator, The Bird Of Freedom, The School Of The Sea");
             Console.WriteLine("There is a button on the plinth that can be pressed");
             Console.ForegroundColor = ConsoleColor.Gray;
-            Console.WriteLine("Figure out the compass points the riddle aludes to");
+            Console.WriteLine("\nFigure out the compass points the riddle aludes to");
             Console.ForegroundColor = ConsoleColor.DarkRed;
 
             bool continueGame = false;
 
             while (continueGame == false)
             {
-                Console.WriteLine("Enter a compass point to examine or submit your answer?");
+                Console.WriteLine("\nEnter a compass point to examine or type submit to take a guess");
                 string playerChoice = Console.ReadLine().ToLower();
 
                 switch (playerChoice)
                 {
-                    case ("north"):
-                        if(index == 0)
-                        {
-                            Console.WriteLine("Bear");
-                        }
-                        else if(index == 5)
-                        {
-                            Console.WriteLine("Eagle");
-                        }
-                        else if(index == 7)
-                        {
-                            Console.WriteLine("Octopus");
-                        }
+                    case string a when a.Contains("north") && (!a.Contains("east") && (!a.Contains("west") && (!a.Contains("south")))):
+                        Console.WriteLine("Bear");                       
                         break;
 
-                    case ("north east"):
+                    case string b when b.Contains("north") && b.Contains("east") && (!b.Contains("west") && (!b.Contains("south"))):
                         Console.WriteLine("Goat");
                         break;
 
-                    case ("east"):
-                        if (index2 == 0)
-                        {
-                            Console.WriteLine("Bear");
-                        }
-                        else if (index2 == 5)
-                        {
-                            Console.WriteLine("Eagle");
-                        }
-                        else if (index2 == 7)
-                        {
-                            Console.WriteLine("Octopus");
-                        }
+                    case string c when c.Contains("east") && (!c.Contains("north") && (!c.Contains("south") && (!c.Contains("west")))):
+                        Console.WriteLine("Eagle");
                         break;
 
-                    case ("south east"):
+                    case string d when d.Contains("south") && d.Contains("east") && (!d.Contains("west") && (!d.Contains("north"))):
                         Console.WriteLine("Camel");
                         break;
 
-                    case ("south"):
+                    case string e when e.Contains("south") && (!e.Contains("east") && (!e.Contains("west") && (!e.Contains("north")))):
+                        Console.WriteLine("Octopus");
+                        break;
+
+                    case string f when f.Contains("south") && f.Contains("west") && (!f.Contains("north") && (!f.Contains("east"))):
                         Console.WriteLine("Fish");
                         break;
 
-                    case ("south west"):
-                        if (index3 == 0)
-                        {
-                            Console.WriteLine("Bear");
-                        }
-                        else if (index3 == 5)
-                        {
-                            Console.WriteLine("Eagle");
-                        }
-                        else if (index3 == 7)
-                        {
-                            Console.WriteLine("Octopus");
-                        }
-                        break;
-
-                    case ("west"):
+                    case string g when g.Contains("west") && (!g.Contains("east") && (!g.Contains("north") && (!g.Contains("south")))):
                         Console.WriteLine("Scorpion");
                         break;
 
-                    case ("north west"):
+                    case string h when h.Contains("north") && h.Contains("west") && (!h.Contains("east") && (!h.Contains("south"))):
                         Console.WriteLine("Snake");
                         break;
 
-                    case string a when a.Contains("submit"):
+                    case string i when i.Contains("submit"):
                         bool continueGame2 = false;
 
                         while(continueGame2 == false)
@@ -208,7 +152,8 @@ namespace AssignmentOneTextAdventure
 
                             switch (playerGuess)
                             {
-                                case ("north east southwest"):
+                                case string k when k.Contains("north") && k.Contains("east") && k.Contains("southwest") && 
+                                (!k.Contains("northeast") && (!k.Contains("southeast") && (!k.Contains("south") && (!k.Contains("west") && (!k.Contains("northwest")))))):
                                     Console.Clear();
                                     Console.WriteLine("North, East, Southwest you say, and press the button.");
                                     PuzzleWinner();
@@ -223,6 +168,11 @@ namespace AssignmentOneTextAdventure
                             }
                         }
                         continueGame = true;
+                        break;
+
+                    case string j when j.Contains("hint"):
+                        Console.WriteLine("\nThe compass points to eight different carvings on the wall. " +
+                            "\nFigure out what the riddle on the plaque means, then submit the corresponding compass points");
                         break;
                 }
             }
