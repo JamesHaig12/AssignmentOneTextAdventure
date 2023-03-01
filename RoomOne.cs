@@ -10,7 +10,8 @@ namespace AssignmentOneTextAdventure
     {
         public static void EntrancePuzzle()
         {
-            GameArtworks gameArtworks = new GameArtworks();            
+            GameArtworks gameArtworks = new GameArtworks();
+            PlayerOne playerOne = new PlayerOne();
             Console.ForegroundColor = ConsoleColor.DarkRed;
             Thread.Sleep(1000);
             Console.WriteLine("\nYou light up a torch, blazing fire lighting up the stones before you...");
@@ -63,6 +64,13 @@ namespace AssignmentOneTextAdventure
                         }
                         break;
 
+                    case string x when x.Contains("save"):
+                        Console.WriteLine("Saving game");
+                        PlayerOne.Location = 2;
+                        continueGame = true;
+                        SaveAndLoad.SaveGame();
+                        break;
+
                     default:
                         Console.WriteLine("{0}! You exclaim, but nothing happened.", riddleAnswer);
                         continueGame = false;
@@ -103,14 +111,20 @@ namespace AssignmentOneTextAdventure
                             Console.WriteLine("Something is coming at you from the right.");
                             break;
 
+                        case string x when x.Contains("save"):
+                            Console.WriteLine("Saving game");
+                            PlayerOne.Location = 2;
+                            continueGame = true;
+                            SaveAndLoad.SaveGame();
+                            break;
+
                         default:
                             Console.WriteLine("\nYou were too slow, a spear shoots out the wall and catches your arm, leaving a deep gash.");
                             Thread.Sleep(1000);
                             Console.WriteLine("-5 HP");
-                            PlayerOne playerOne = new PlayerOne();
                             GameIntroScreen gameIntroScreen = new GameIntroScreen();
                             playerOne.Health -= 5;
-                            Console.WriteLine("{0} HP: {1}",gameIntroScreen.PlayerName, playerOne.Health);
+                            Console.WriteLine("{0} HP: {1}",GameIntroScreen.PlayerName, playerOne.Health);
                             continueGame = true;
                             Console.ForegroundColor = ConsoleColor.Gray;
                             Console.WriteLine("\nPress any key to continue...");
@@ -176,6 +190,13 @@ namespace AssignmentOneTextAdventure
 
                     case string c when c.Contains("hint"):
                         Console.WriteLine("Choose to move to either the doorway at the end or the doorway on the right.");
+                        break;
+
+                    case string x when x.Contains("save"):
+                        Console.WriteLine("Saving game");
+                        PlayerOne.Location = 2;
+                        continueGame = true;
+                        SaveAndLoad.SaveGame();
                         break;
 
                     default:

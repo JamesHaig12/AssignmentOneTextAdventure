@@ -8,8 +8,9 @@ namespace AssignmentOneTextAdventure
 {
     public class RoomFour
     {
-        public static void GuardsRoom(int weaponGet)
+        public static void GuardsRoom()
         {
+            PlayerOne playerOne = new PlayerOne();
             Console.Clear();
             Console.WriteLine("\nYou look up from the weapon to see a bright light, shining onto the pillar with the bear, straight north");
             Thread.Sleep(1000);
@@ -35,8 +36,7 @@ namespace AssignmentOneTextAdventure
 
                 switch (playerAnswer)
                 {
-                    case string a when a.Contains("chest"):
-                        PlayerOne playerOne = new PlayerOne();
+                    case string a when a.Contains("chest"):                    
                         Console.WriteLine("\nYou move over to the chest, very cautiosly this time, your wounds from the mimic still fresh");
                         Thread.Sleep(1000);
                         Console.WriteLine("You swing it open, its a real chest. Inside is a glistening plate of armour");
@@ -63,6 +63,13 @@ namespace AssignmentOneTextAdventure
 
                     case string c when c.Contains("hint"):
                         Console.WriteLine("\nWould you like to examine the chest or the statues?");
+                        break;
+
+                    case string x when x.Contains("save"):
+                        Console.WriteLine("Saving game");
+                        PlayerOne.Location = 5;
+                        continueGame = true;
+                        SaveAndLoad.SaveGame();
                         break;
 
                     default:

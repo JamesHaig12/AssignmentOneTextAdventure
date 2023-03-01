@@ -39,5 +39,12 @@ namespace AssignmentOneTextAdventure
             get { return damageBuff; }
             set { damageBuff = value; }
         }
+
+        private static int location;
+        public static int Location
+        {
+            get { return location; }
+            set { location = value; }
+        }
     }
 }

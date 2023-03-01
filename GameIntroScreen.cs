@@ -11,8 +11,8 @@ namespace AssignmentOneTextAdventure
 {
     public class GameIntroScreen
     {
-        private string? playerName;
-        public string PlayerName
+        private static string? playerName;
+        public static string PlayerName
         {
             get { return playerName; }
             set { playerName = value; }
@@ -38,7 +38,7 @@ namespace AssignmentOneTextAdventure
             WindowResizer.ResizeWindow();
 
             //Will be save load function
-            /*Console.WriteLine("MAIN MENU");
+            Console.WriteLine("MAIN MENU");
             Console.WriteLine("=============================");
             bool continueApp = false;
 
@@ -54,52 +54,20 @@ namespace AssignmentOneTextAdventure
                         break;
 
                     case string b when b.Contains("load") || b.Contains("save"):
+                        SaveAndLoad saveAndLoad = new SaveAndLoad();
                         Console.WriteLine("Please enter your name you entered at the start of your game");
                         string userName = Console.ReadLine().ToLower();
-                        String line;
-                        try
-                        {
-                            StreamReader sr = new StreamReader(@"C:/Documents/Test.txt");
-                            line = sr.ReadLine();
-                            while( line != null)
-                            {
-                                if(line.Contains(userName))
-                                {
-                                    if (line.Contains("1"))
-                                    {
-                                        continueApp = true;
-                                        ClassSelection();
-                                    }
-                                    else if (line.Contains("2"))
-                                    {
-                                        GameIntro(playerClass);
-                                    }
-                                    else if (line.Contains("3"))
-                                    {
-                                        RoomOne.EntrancePuzzle();
-                                    }
-                                }
-                                line = sr.ReadLine();
-                            }                           
-                            sr.Close();
-                        }
-                        catch(Exception e)
-                        {
-                            Console.WriteLine("Exception: " + e.Message);
-                        }
-                        finally
-                        {
-                            Console.WriteLine("Executing Finally Block");
-                        }
+                        GameIntroScreen.PlayerName = userName;
+                        SaveAndLoad.LoadGame();
                         continueApp = true;
                         break;
                 }
 
-            }*/
+            }
 
             //Tutorial
             Console.ForegroundColor = ConsoleColor.Blue;
-            Console.WriteLine("Hello and welcome to my game!");
+            Console.WriteLine("\nHello and welcome to my game!");
             Console.WriteLine("Throughout the game you will be faced with questions such as 'What will you do?'");
             Console.WriteLine("Please feel free to type what ever you'd like, however you may only progress with certain actions");
             Console.WriteLine("During combat, your character has three moves. Light, heavy, and special");
@@ -120,8 +88,8 @@ namespace AssignmentOneTextAdventure
             Console.Clear();
             Thread.Sleep(1000);
             Console.WriteLine("What is your name traveller?");
-            gameIntroScreen.playerName = Console.ReadLine();
-            Console.WriteLine("\nWelcome, {0}, to...", gameIntroScreen.playerName);
+            GameIntroScreen.playerName = Console.ReadLine().ToLower();
+            Console.WriteLine("\nWelcome, {0}, to...", GameIntroScreen.playerName);
             Thread.Sleep(2000);
             Console.Clear();
      
@@ -199,6 +167,7 @@ namespace AssignmentOneTextAdventure
         {
             GameArtworks gameArtworks = new GameArtworks();
             GameIntroScreen gameIntroScreen = new GameIntroScreen();
+            PlayerOne playerOne = new PlayerOne();
 
             //New ascii art and colour
             Console.ForegroundColor = ConsoleColor.DarkYellow;
@@ -267,28 +236,12 @@ namespace AssignmentOneTextAdventure
                         Console.WriteLine("There is something on the wall, maybe try lighting a torch.");
                         break;
 
-                    /*case string e when e.Contains("save"):
+                    case string x when x.Contains("save"):
                         Console.WriteLine("Saving game");
-                        try
-                        {
-                            //Pass the filepath and filename to the StreamWriter Constructor
-                            StreamWriter sw = new StreamWriter(@"C:\Documents\Test.txt");
-                            //Write a line of text
-                            sw.WriteLine(GameIntroScreen.playerClass + gameIntroScreen.PlayerName);
-                            //Close the file
-                            sw.Close();
-                        }
-                        catch (Exception f)
-                        {
-                            Console.WriteLine("Exception: " + f.Message);
-                        }
-                        finally
-                        {
-                            Console.WriteLine("Executing finally block.");
-                        }
-                        GameSaved.GameSavedScreen();
+                        PlayerOne.Location = 1;
                         continueGame = true;
-                        break;*/
+                        SaveAndLoad.SaveGame();
+                        break;
 
                     default:
                         Console.WriteLine("\nHmm im not sure i can do that right now");

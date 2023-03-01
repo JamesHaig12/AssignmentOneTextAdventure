@@ -16,7 +16,6 @@ namespace AssignmentOneTextAdventure
         }
 
         private int armour = 5;
-
         public int Armour
         {
             get { return armour; }

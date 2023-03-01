@@ -19,6 +19,10 @@ namespace AssignmentOneTextAdventure
             Thread.Sleep(1000);
             Console.WriteLine("You look up in horror and see both statues coming to life, brandishing their blades, one with an axe, one with a lance.");
             Thread.Sleep(4000);
+            Console.ForegroundColor = ConsoleColor.Gray;
+            Console.WriteLine("\nPress Any Key To Continue");
+            Console.ForegroundColor = ConsoleColor.DarkRed;
+            Console.ReadKey();
 
             GameIntroScreen gameIntroScreen = new GameIntroScreen();
             GuardNPC1 npc = new GuardNPC1();
@@ -48,7 +52,7 @@ namespace AssignmentOneTextAdventure
                 int whichGuard;
 
 
-                while ((npc.Health > 0) && (npc2.Health > 0))
+                while ((npc.Health > 0) || (npc2.Health > 0))
                 {
                     Console.ForegroundColor = ConsoleColor.DarkRed;
                     chanceToHitM = random.Next(1, 10);
@@ -92,7 +96,7 @@ namespace AssignmentOneTextAdventure
                     damagePL = random.Next(1, 5);
                     damagePH = random.Next(4, 10);
                     damagePS = random.Next(10, 20);
-                    whichGuard = random.Next(1, 2);
+                    whichGuard = random.Next(1, 3);
                     Console.WriteLine("\nWhat do you do?");
                     string playerAttack = Console.ReadLine().ToLower();
                     Console.ForegroundColor = ConsoleColor.DarkGreen;
@@ -202,7 +206,7 @@ namespace AssignmentOneTextAdventure
                 int whichGuard2;
 
 
-                while ((npc.Health > 0) && (npc2.Health > 0))
+                while ((npc.Health > 0) || (npc2.Health > 0))
                 {
                     Console.ForegroundColor = ConsoleColor.DarkRed;
                     chanceToHitM3 = random.Next(1, 10);
@@ -246,7 +250,7 @@ namespace AssignmentOneTextAdventure
                     damagePL2 = random.Next(1, 5);
                     damagePH2 = random.Next(4, 10);
                     damagePS2 = random.Next(10, 20);
-                    whichGuard2 = random.Next(1, 2);
+                    whichGuard2 = random.Next(1, 3);
                     Console.WriteLine("\nWhat do you do?");
                     string playerAttack = Console.ReadLine().ToLower();
                     Console.ForegroundColor = ConsoleColor.DarkGreen;
@@ -356,7 +360,7 @@ namespace AssignmentOneTextAdventure
                 int whichGuard3;
 
 
-                while ((npc.Health > 0 && npc2.Health > 0))
+                while ((npc.Health > 0 || npc2.Health > 0))
                 {
                     Console.ForegroundColor = ConsoleColor.DarkRed;
                     chanceToHitM5 = random.Next(1, 10);
@@ -400,7 +404,7 @@ namespace AssignmentOneTextAdventure
                     damagePL3 = random.Next(1, 5);
                     damagePH3 = random.Next(4, 10);
                     damagePS3 = random.Next(10, 20);
-                    whichGuard3 = random.Next(1, 2);
+                    whichGuard3 = random.Next(1, 3);
                     Console.WriteLine("\nWhat do you do?");
                     string playerAttack = Console.ReadLine().ToLower();
                     Console.ForegroundColor = ConsoleColor.DarkGreen;

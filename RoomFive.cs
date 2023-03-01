@@ -10,6 +10,7 @@ namespace AssignmentOneTextAdventure
     {
         public static void BossRoom()
         {
+            PlayerOne playerOne = new PlayerOne();
             GameArtworks gameArtworks = new GameArtworks();
             Console.Clear();
             Console.WriteLine("\nYou take a deep breath, everything in here has tried to kill you so far...");
@@ -61,6 +62,13 @@ namespace AssignmentOneTextAdventure
 
                     case string c when c.Contains("hint"):
                         Console.WriteLine("\nSacrifice some of your blood, or something else?");
+                        break;
+
+                    case string x when x.Contains("save"):
+                        Console.WriteLine("Saving game");
+                        PlayerOne.Location = 6;
+                        continueGame = true;
+                        SaveAndLoad.SaveGame();
                         break;
 
                     default:

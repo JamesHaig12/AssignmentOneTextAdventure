@@ -85,9 +85,9 @@ namespace AssignmentOneTextAdventure
 
                     chanceToHitPL = random.Next(1, 10);
                     chanceToHitPH = random.Next(1, 10);
-                    damagePL = random.Next(1, 5);
-                    damagePH = random.Next(4, 10);
-                    damagePS = random.Next(10, 20);
+                    damagePL = random.Next(5, 10);
+                    damagePH = random.Next(7, 11);
+                    damagePS = random.Next(15, 30);
                     Console.WriteLine("\nWhat do you do?");
                     string playerAttack = Console.ReadLine().ToLower();
                     Console.ForegroundColor = ConsoleColor.DarkGreen;
@@ -222,9 +222,9 @@ namespace AssignmentOneTextAdventure
 
                     chanceToHitPL2 = random.Next(1, 10);
                     chanceToHitPH2 = random.Next(1, 10);
-                    damagePL2 = random.Next(1, 5);
-                    damagePH2 = random.Next(4, 10);
-                    damagePS2 = random.Next(10, 20);
+                    damagePL2 = random.Next(5, 10);
+                    damagePH2 = random.Next(7, 11);
+                    damagePS2 = random.Next(15, 30);
                     Console.WriteLine("\nWhat do you do?");
                     string playerAttack = Console.ReadLine().ToLower();
                     Console.ForegroundColor = ConsoleColor.DarkGreen;
@@ -359,9 +359,9 @@ namespace AssignmentOneTextAdventure
 
                     chanceToHitPL3 = random.Next(1, 10);
                     chanceToHitPH3 = random.Next(1, 10);
-                    damagePL3 = random.Next(1, 5);
-                    damagePH3 = random.Next(4, 10);
-                    damagePS3 = random.Next(10, 20);
+                    damagePL3 = random.Next(5, 10);
+                    damagePH3 = random.Next(7, 11);
+                    damagePS3 = random.Next(15, 30);
                     Console.WriteLine("\nWhat do you do?");
                     string playerAttack = Console.ReadLine().ToLower();
                     Console.ForegroundColor = ConsoleColor.DarkGreen;

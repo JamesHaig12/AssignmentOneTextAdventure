@@ -11,6 +11,7 @@ namespace AssignmentOneTextAdventure
     {
         public static void WeaponRoom()
         {
+            PlayerOne playerOne = new PlayerOne();
             Console.Clear();
             Console.WriteLine("'Ah finally! The Key!'");
             Console.WriteLine("You take a last scan of the room, noticing some more carvings on the wall but not much more of interest");
@@ -50,6 +51,13 @@ namespace AssignmentOneTextAdventure
                         Console.WriteLine("I cant go back now, Surely.");
                         break;
 
+                    case string x when x.Contains("save"):
+                        Console.WriteLine("Saving game");
+                        PlayerOne.Location = 4;
+                        continueGame = true;
+                        SaveAndLoad.SaveGame();
+                        break;
+
                     default:
                         Console.WriteLine("Not sure i can do that right now");
                         break;
@@ -60,6 +68,7 @@ namespace AssignmentOneTextAdventure
         public static void WeaponRoomPuzzle()
         {
             GameArtworks gameArtworks = new GameArtworks();
+            GameIntroScreen gameIntroScreen = new GameIntroScreen();
             Console.ForegroundColor = ConsoleColor.Gray;
             Console.WriteLine("\nPress any key to continue...");
             Console.ForegroundColor = ConsoleColor.DarkRed;
@@ -95,6 +104,7 @@ namespace AssignmentOneTextAdventure
 
         public static void WeaponPuzzle()
         {
+            PlayerOne playerOne = new PlayerOne();
             Thread.Sleep(1000);
             Console.WriteLine("\nAround the plinth is a metal cage, you cannot fit your hand through the bars");
             Thread.Sleep(1000);
@@ -180,6 +190,13 @@ namespace AssignmentOneTextAdventure
                         Console.WriteLine("\nThe compass points to eight different carvings on the wall. " +
                             "\nFigure out what the riddle on the plaque means, then submit the corresponding compass points");
                         break;
+
+                    case string x when x.Contains("save"):
+                        Console.WriteLine("Saving game");
+                        PlayerOne.Location = 4;
+                        continueGame = true;
+                        SaveAndLoad.SaveGame();
+                        break;
                 }
             }
         }
@@ -187,6 +204,7 @@ namespace AssignmentOneTextAdventure
         public static void PuzzleWinner()
         {
             PlayerOne playerOne = new PlayerOne();
+            GameIntroScreen gameIntroScreen = new GameIntroScreen();
             int newWeapon = 1;
             playerOne.DamageBuff += 5;
             
@@ -213,12 +231,13 @@ namespace AssignmentOneTextAdventure
             Console.WriteLine("\nPress Any Key To Continue");
             Console.ForegroundColor = ConsoleColor.DarkRed;
             Console.ReadKey();
-            RoomFour.GuardsRoom(newWeapon);
+            RoomFour.GuardsRoom();
         }
 
         public static void PuzzleLoser()
         {
             int newWeapon = 0;
+            GameIntroScreen gameIntroScreen = new GameIntroScreen();
 
             Console.WriteLine("\nYou hear a click, then another and another and another");
             Thread.Sleep(1000);
@@ -242,7 +261,7 @@ namespace AssignmentOneTextAdventure
             Console.WriteLine("\nPress Any Key To Continue");
             Console.ForegroundColor = ConsoleColor.DarkRed;
             Console.ReadKey();
-            RoomFour.GuardsRoom(newWeapon);
+            RoomFour.GuardsRoom();
         }
     }
 }

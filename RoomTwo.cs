@@ -12,6 +12,7 @@ namespace AssignmentOneTextAdventure
     {
         public static void TreasureRoom()
         {
+            PlayerOne playerOne = new PlayerOne();
             Console.WriteLine("You enter the room to the right, your torch lighting the entire area");
             Random rnd = new Random();
             int chance = rnd.Next(1, 10);
@@ -50,15 +51,21 @@ namespace AssignmentOneTextAdventure
                             Console.WriteLine("Theres a trap above, how do you try to avoid it?");
                             break;
 
+                        case string x when x.Contains("save"):
+                            Console.WriteLine("Saving game");
+                            PlayerOne.Location = 3;
+                            continueGame = true;
+                            SaveAndLoad.SaveGame();
+                            break;
+
                         default:
-                            PlayerOne playerOne = new PlayerOne();
                             GameIntroScreen gameIntroScreen = new GameIntroScreen();
                             Console.WriteLine("Spikes shoot down from the cieling, you try to evade them but you get struck on the way out");
                             Thread.Sleep(1000);
                             Console.WriteLine("-5 HP");
                             Thread.Sleep(1000);
                             playerOne.Health -= 5;
-                            Console.WriteLine("{0} HP: {1}", gameIntroScreen.PlayerName, playerOne.Health);
+                            Console.WriteLine("{0} HP: {1}", GameIntroScreen.PlayerName, playerOne.Health);
                             continueGame = true;
                             break;
                     }
@@ -133,6 +140,12 @@ namespace AssignmentOneTextAdventure
 
                     case string c when c.Contains("hint"):
                         Console.WriteLine("Yes or No");
+                        break;
+
+                    case string x when x.Contains("save"):
+                        Console.WriteLine("Saving game");
+                        PlayerOne.Location = 3;
+                        SaveAndLoad.SaveGame();
                         break;
 
                     default:
