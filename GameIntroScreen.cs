@@ -75,6 +75,8 @@ namespace AssignmentOneTextAdventure
             Console.WriteLine("Light attacks hit more often but do the least damage");
             Console.WriteLine("Heavy attacks hit less often but do more damage than a light attack");
             Console.WriteLine("If at any point you dont understand what you need to do, just type 'Hint'");
+            Console.WriteLine("At any major point where the game asks you to make an action, you may type 'Save' to save your game");
+            Console.WriteLine("Please Note: Saving cannot be done during combat, please wait for comabt to end before saving your game");
             Console.WriteLine("Thank you for playing and i hope you enjoy.");
             Console.WriteLine("Now... Shall we begin?");
             Console.ForegroundColor = ConsoleColor.Gray;
@@ -239,7 +241,6 @@ namespace AssignmentOneTextAdventure
                     case string x when x.Contains("save"):
                         Console.WriteLine("Saving game");
                         PlayerOne.Location = 1;
-                        continueGame = true;
                         SaveAndLoad.SaveGame();
                         break;
 

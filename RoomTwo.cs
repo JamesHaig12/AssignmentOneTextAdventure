@@ -54,7 +54,6 @@ namespace AssignmentOneTextAdventure
                         case string x when x.Contains("save"):
                             Console.WriteLine("Saving game");
                             PlayerOne.Location = 3;
-                            continueGame = true;
                             SaveAndLoad.SaveGame();
                             break;
 

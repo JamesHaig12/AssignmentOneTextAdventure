@@ -29,6 +29,17 @@ namespace AssignmentOneTextAdventure
                 writer.Close();
                 f.Close();
             }
+            Console.Clear();
+            Thread.Sleep(1000);
+            Console.WriteLine("Saving... Please Wait");
+            Thread.Sleep(5000);
+            Console.WriteLine("Done");
+            Thread.Sleep(1000);
+            Console.ForegroundColor = ConsoleColor.Gray;
+            Console.WriteLine("\nPress Any Key To Exit");
+            Console.ForegroundColor = ConsoleColor.DarkRed;
+            Console.ReadKey();
+            Environment.Exit(0);
         }
 
         public static void LoadGame()
